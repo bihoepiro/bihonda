@@ -1,0 +1,188 @@
+import { useState } from 'react';
+import * as d3 from 'd3';
+import { motion } from 'framer-motion';
+import Polaroid from '../components/Polaroid.jsx';
+import Reveal from '../components/Reveal.jsx';
+import { foto } from '../lib/fotos.js';
+
+const spotifyPlaylist =
+  'https://open.spotify.com/playlist/1BA6IztOv0g2tBndLzuyPf?si=PdW70y1eRBemxZobBWuZ0w&pi=uIXMIdEWR0ytu';
+
+const WALL = [
+  { nombre: 'collage_familia', left: '4%', top: '6%', rotate: -4, width: 230, caption: 'familia', emoji: '👨‍👩‍👧‍👦' },
+  { nombre: 'collage_amigos', left: '36%', top: '2%', rotate: 3, width: 215, caption: 'amigos', emoji: '🫂' },
+  { nombre: 'collage_ian', left: '66%', top: '10%', rotate: -2, width: 260, ian: true, emoji: '🤍' },
+  { nombre: 'papas', left: '10%', top: '48%', rotate: 2.5, width: 210, caption: 'ellos dos', emoji: '💞' },
+  { nombre: 'hermanos', left: '40%', top: '52%', rotate: -3, width: 220, caption: 'hermanos', emoji: '👧👦' },
+  { nombre: 'sobrinos_y_yo', left: '69%', top: '56%', rotate: 4, width: 215, caption: 'los enanos y yo', emoji: '🧸' },
+  { nombre: 'collage_fam1', left: '7%', top: '76%', rotate: -3.5, width: 205, caption: 'más nosotros', emoji: '🏡' },
+  { nombre: 'collage_amigos2', left: '38%', top: '80%', rotate: 2.5, width: 205, caption: 'más ellos', emoji: '🥹' },
+  { nombre: 'collage_familia5', left: '68%', top: '77%', rotate: -2, width: 205, caption: 'y más amor', emoji: '💞' },
+];
+
+const FELICIDAD = [
+  { anio: 2004, valor: 7, emoji: '😊', frase: 'aparecí. contra todo pronóstico.', foto: 'yo_6_meses' },
+  { anio: 2012, valor: 8, emoji: '🥹', frase: 'llegó fabianne.', foto: 'fabi_pasado' },
+  { anio: 2016, valor: 8.5, emoji: '😄', frase: 'la salle, aixa, nena. buen año.', foto: 'lasalle' },
+  { anio: 2020, valor: 3, emoji: '😭', frase: 'ese año ya saben lo que pasó.', foto: null },
+  { anio: 2021, valor: 6, emoji: '🙂', frase: 'empezó utec.', foto: 'bioingenieria' },
+  { anio: 2023, valor: 9, emoji: '😄', frase: 'la mejor decisión que he tomado.', foto: 'datascience' },
+  { anio: 2024, valor: 9, emoji: '😄', frase: 'europa + primeras prácticas.', foto: 'paris' },
+  { anio: 2025, valor: 8.5, emoji: '😊', frase: 'belcorp y gente nueva.', foto: 'belcorp_amigos' },
+  { anio: 2026, valor: 10, emoji: '❤️', frase: 'todavía quedan muchos capítulos.', foto: 'fotoprincipal' },
+];
+
+function HappinessTimeline() {
+  const [punto, setPunto] = useState(null);
+  const W = 780;
+  const H = 300;
+  // espaciado uniforme: es una línea de recuerdos, no de precisión temporal
+  const x = d3
+    .scalePoint()
+    .domain(FELICIDAD.map((d) => d.anio))
+    .range([55, W - 45]);
+  const y = d3.scaleLinear().domain([0, 10]).range([H - 50, 30]);
+  const linea = d3
+    .line()
+    .x((d) => x(d.anio))
+    .y((d) => y(d.valor))
+    .curve(d3.curveMonotoneX);
+
+  return (
+    <div style={{ position: 'relative', maxWidth: 840, margin: '0 auto' }}>
+      <svg viewBox={`0 0 ${W} ${H}`} className="chart-svg" role="img" aria-label="cómo recuerdo cada etapa">
+        <motion.path
+          d={linea(FELICIDAD)}
+          fill="none"
+          stroke="#8e6bc8"
+          strokeWidth="2.5"
+          initial={{ pathLength: 0 }}
+          whileInView={{ pathLength: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 2, ease: 'easeInOut' }}
+        />
+        {FELICIDAD.map((p, i) => (
+          <motion.g
+            key={p.anio}
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 + i * 0.18, type: 'spring', bounce: 0.5 }}
+            style={{ cursor: 'pointer' }}
+            onMouseEnter={() => setPunto(p)}
+            onClick={() => setPunto(punto?.anio === p.anio ? null : p)}
+          >
+            <circle cx={x(p.anio)} cy={y(p.valor)} r={13} fill="#fff" stroke="#8e6bc8" strokeWidth="1.5" />
+            <text x={x(p.anio)} y={y(p.valor) + 5} textAnchor="middle" fontSize="14">
+              {p.emoji}
+            </text>
+            <text x={x(p.anio)} y={H - 22} textAnchor="middle" style={{ fontFamily: 'var(--fraunces)', fontSize: 14, fill: '#6b6b6b' }}>
+              {p.anio}
+            </text>
+          </motion.g>
+        ))}
+      </svg>
+      <p className="chart-note">basado únicamente en cómo recuerdo esos años ❤️ (metodología: cero. cariño: mucho.)</p>
+
+      {punto && (
+        <div
+          style={{
+            position: 'absolute',
+            left: `clamp(0%, ${((x(punto.anio) - 100) / W) * 100}%, 70%)`,
+            top: -10,
+            transform: 'translateY(-100%)',
+            pointerEvents: 'none',
+          }}
+        >
+        <motion.div
+          className="hover-card"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          {punto.foto && foto(punto.foto) && (
+            <img src={foto(punto.foto)} alt={String(punto.anio)} style={{ width: 140, aspectRatio: '4/3', objectFit: 'cover', borderRadius: 8, marginBottom: 8 }} />
+          )}
+          <p className="frase">
+            <strong>{punto.anio}</strong> — {punto.frase}
+          </p>
+        </motion.div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function Final() {
+  return (
+    <section id="final" data-capitulo="final" className="chapter chapter--wide">
+      <Reveal>
+        <p className="chapter-kicker">último capítulo</p>
+        <h2 className="chapter-title">y bueno... aquí sigo.</h2>
+      </Reveal>
+
+      <div className="memory-wall">
+        {WALL.map((w, i) => (
+          <motion.div
+            key={w.nombre}
+            className="memory-item"
+            style={{ left: w.left, top: w.top }}
+            initial={{ opacity: 0, y: -80, rotate: w.rotate * 3 }}
+            whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+            viewport={{ once: true, margin: '-6% 0px' }}
+            transition={{ duration: 0.8, delay: i * 0.22, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {w.ian ? (
+              <figure className="polaroid" style={{ width: w.width, rotate: `${w.rotate}deg`, margin: 0 }}>
+                {foto(w.nombre) ? (
+                  <img className="polaroid-img" src={foto(w.nombre)} alt="ian" />
+                ) : (
+                  <div className="polaroid-placeholder">
+                    <span className="emoji">🤍</span>
+                    <span className="nombre">{w.nombre}</span>
+                  </div>
+                )}
+                <div className="ian-heart">
+                  <span style={{ fontSize: '1.8rem' }}>❤️</span>
+                  <span>highlight del 2026</span>
+                </div>
+              </figure>
+            ) : (
+              <Polaroid nombre={w.nombre} width={w.width} rotate={w.rotate} caption={w.caption} emoji={w.emoji} tape={i % 2 === 0} />
+            )}
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="scrolly-block">
+        <Reveal>
+          <p className="hand" style={{ textAlign: 'center', fontSize: '1.6rem' }}>happiness timeline</p>
+        </Reveal>
+        <HappinessTimeline />
+      </div>
+
+      <Reveal className="prose scrolly-block" style={{ margin: '18vh auto', textAlign: 'center', maxWidth: 620 }}>
+        <p className="big">bueno... hasta aquí llega la versión 22.0 de mi historia.</p>
+        <p>si llegaste hasta aquí, gracias por hacer scroll conmigo ❤️</p>
+        <p>
+          todavía me queda un año para terminar la universidad. muchísimos lugares por conocer. muchísimos
+          modelos por entrenar. y seguramente varios plot twists más.
+        </p>
+        <p className="big">pero esos ya serán parte de la siguiente versión.</p>
+      </Reveal>
+
+      <div className="spotify-cierre">
+        <Reveal>
+          <p style={{ fontSize: '2rem', margin: 0 }}>🎵</p>
+          <p className="big" style={{ fontFamily: 'var(--fraunces)' }}>antes de irte...</p>
+          <p className="prose" style={{ margin: '0 auto 1.2rem' }}>
+            si quieres conocerme un poquito más... esta playlist probablemente termine de hacerlo.
+          </p>
+          <a className="btn-spotify" href={spotifyPlaylist} target="_blank" rel="noreferrer">
+            ▶ open spotify playlist
+          </a>
+          <p className="nota-pequena" style={{ marginTop: '3rem' }}>hecho con react, d3 y demasiado matcha 🍵 — bihonda, 2026</p>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
