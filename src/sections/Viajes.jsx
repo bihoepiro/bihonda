@@ -66,7 +66,7 @@ export default function Viajes() {
   const [popup, setPopup] = useState(null);
 
   useEffect(() => {
-    fetch('/data/countries-110m.json')
+    fetch(`${import.meta.env.BASE_URL}data/countries-110m.json`)
       .then((r) => r.json())
       .then((topo) => setMundo(feature(topo, topo.objects.countries)))
       .catch(() => setMundo('error'));
