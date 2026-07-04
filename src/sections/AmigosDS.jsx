@@ -48,6 +48,7 @@ function RedAmigos() {
   const R = 130;
 
   return (
+    <div style={{ maxWidth: 950, margin: '0 auto' }}>
     <svg viewBox={`0 0 ${W} ${H}`} className="chart-svg" role="img" aria-label="mi red de data science">
       {AMIGOS.map((a, i) => {
         const x = cx + Math.cos(a.ang) * R;
@@ -111,6 +112,7 @@ function RedAmigos() {
         yo
       </text>
     </svg>
+    </div>
   );
 }
 
