@@ -26,7 +26,7 @@ function NetworkLaSalle() {
   const persona = PERSONAS.find((p) => p.id === activa);
 
   return (
-    <div style={{ position: 'relative', maxWidth: 760, margin: '0 auto' }}>
+    <div style={{ position: 'relative', maxWidth: 1050, margin: '0 auto' }}>
       <svg viewBox={`0 0 ${W} ${H}`} className="chart-svg" role="img" aria-label="las personas de la salle">
         {PERSONAS.map((p, i) => {
           const x = cx + Math.cos(p.ang) * R;

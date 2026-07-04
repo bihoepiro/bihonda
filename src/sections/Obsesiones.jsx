@@ -2,17 +2,19 @@ import { useMemo, useState } from 'react';
 import * as d3 from 'd3';
 import { motion, AnimatePresence } from 'framer-motion';
 import Reveal from '../components/Reveal.jsx';
+import { foto } from '../lib/fotos.js';
 
 const OBSESIONES = [
-  { id: 'matcha', emoji: '🍵', valor: 30, frase: 'no sé cuándo empezó. solo sé que ahora siempre termino pidiendo matcha.' },
-  { id: 'fotografía', emoji: '📷', valor: 27, frase: 'mi celular tiene demasiadas fotos. no me arrepiento de ninguna.' },
-  { id: 'harry potter', emoji: '🧙', valor: 25, frase: 'gracias bryan ❤️' },
-  { id: 'playlists', emoji: '🎵', valor: 22, frase: 'tengo playlists para absolutamente todo.' },
-  { id: 'criminal minds', emoji: '📺', valor: 20, frase: 'spencer reid fue mi primer amor platónico. nunca lo superé. 😂' },
-  { id: 'tiktok', emoji: '📱', valor: 18, frase: 'tiktok es un agujero negro.' },
-  { id: 'ravenclaw', emoji: '🦅', valor: 16, frase: 'obviamente ravenclaw.' },
-  { id: 'the blacklist', emoji: '🎬', valor: 13, frase: 'reddington merece un premio. yo también, por terminarla.' },
-  { id: 'killing eve', emoji: '🔪', valor: 13, frase: 'villanelle tiene el mejor clóset de la televisión.' },
+  { id: 'matcha', img: 'matcha', emoji: '🍵', valor: 30, frase: 'no sé cuándo empezó. solo sé que ahora siempre termino pidiendo matcha.' },
+  { id: 'fotografía', img: 'lovemylife', emoji: '📷', valor: 27, frase: 'mi celular tiene demasiadas fotos. no me arrepiento de ninguna.' },
+  { id: 'harry potter', img: 'harrypotter', emoji: '🧙', valor: 25, frase: 'gracias bryan ❤️' },
+  { id: 'playlists', img: 'spotify', emoji: '🎵', valor: 22, frase: 'tengo playlists para absolutamente todo.' },
+  { id: 'series', img: 'showslover', emoji: '📺', valor: 21, frase: 'amo ver series. mi comfort show siempre gana.' },
+  { id: 'criminal minds', img: 'spencerreid', emoji: '📺', valor: 20, frase: 'spencer reid fue mi primer amor platónico. nunca lo superé. 😂' },
+  { id: 'tiktok', img: 'tiktok', emoji: '📱', valor: 18, frase: 'tiktok es un agujero negro.' },
+  { id: 'ravenclaw', img: 'ravenclaw', emoji: '🦅', valor: 16, frase: 'obviamente ravenclaw.' },
+  { id: 'the blacklist', img: 'blacklist', emoji: '🎬', valor: 13, frase: 'reddington merece un premio. yo también, por terminarla.' },
+  { id: 'killing eve', img: 'killingeve', emoji: '🔪', valor: 13, frase: 'villanelle tiene el mejor clóset de la televisión.' },
 ];
 
 export default function Obsesiones() {
@@ -22,7 +24,7 @@ export default function Obsesiones() {
     const root = d3
       .pack()
       .size([720, 560])
-      .padding(14)(d3.hierarchy({ children: OBSESIONES }).sum((d) => d.valor));
+      .padding(24)(d3.hierarchy({ children: OBSESIONES }).sum((d) => d.valor));
     return root.leaves();
   }, []);
 
@@ -37,10 +39,12 @@ export default function Obsesiones() {
       </Reveal>
 
       <div className="dos-columnas dos-columnas--centrado">
-        <svg viewBox="0 0 720 560" className="chart-svg" role="img" aria-label="mis obsesiones, a escala">
+        <svg viewBox="0 0 720 595" className="chart-svg" role="img" aria-label="mis obsesiones, a escala">
           {circulos.map((c, i) => {
             const d = c.data;
             const grande = activa === d.id;
+            const src = d.img && foto(d.img);
+            const slug = d.id.replace(/\s+/g, '-');
             return (
               <motion.g
                 key={d.id}
@@ -61,14 +65,41 @@ export default function Obsesiones() {
                   strokeWidth={grande ? 2.2 : 1.4}
                   style={{ transition: 'all .4s' }}
                 />
-                <text x={c.x} y={c.y - 4} textAnchor="middle" style={{ fontSize: c.r * 0.62, pointerEvents: 'none' }}>
-                  {d.emoji}
-                </text>
+                {src ? (
+                  <>
+                    <clipPath id={`clip-obs-${slug}`}>
+                      <circle cx={c.x} cy={c.y} r={c.r - 3} />
+                    </clipPath>
+                    <image
+                      href={src}
+                      x={c.x - (c.r - 3)}
+                      y={c.y - (c.r - 3)}
+                      width={(c.r - 3) * 2}
+                      height={(c.r - 3) * 2}
+                      preserveAspectRatio="xMidYMid slice"
+                      clipPath={`url(#clip-obs-${slug})`}
+                      style={{ pointerEvents: 'none' }}
+                    />
+                  </>
+                ) : (
+                  <text x={c.x} y={c.y - 4} textAnchor="middle" style={{ fontSize: c.r * 0.62, pointerEvents: 'none' }}>
+                    {d.emoji}
+                  </text>
+                )}
                 <text
                   x={c.x}
-                  y={c.y + c.r * 0.45}
+                  y={c.y + c.r + 16}
                   textAnchor="middle"
-                  style={{ fontFamily: 'var(--hand)', fontSize: Math.max(13, c.r * 0.26), fill: '#5e4a8a', pointerEvents: 'none' }}
+                  style={{
+                    fontFamily: 'var(--hand)',
+                    fontSize: Math.max(14, c.r * 0.24),
+                    fill: '#5e4a8a',
+                    pointerEvents: 'none',
+                    paintOrder: 'stroke',
+                    stroke: '#fff',
+                    strokeWidth: 4,
+                    strokeLinejoin: 'round',
+                  }}
                 >
                   {d.id}
                 </text>
@@ -89,7 +120,15 @@ export default function Obsesiones() {
                 transition={{ duration: 0.35 }}
                 style={{ maxWidth: 320 }}
               >
-                <div style={{ fontSize: '2rem' }}>{obsesion.emoji}</div>
+                {obsesion.img && foto(obsesion.img) ? (
+                  <img
+                    src={foto(obsesion.img)}
+                    alt={obsesion.id}
+                    style={{ width: '100%', maxWidth: 280, aspectRatio: '4/3', objectFit: 'cover', borderRadius: 8, marginBottom: 8 }}
+                  />
+                ) : (
+                  <div style={{ fontSize: '2rem' }}>{obsesion.emoji}</div>
+                )}
                 <p className="frase" style={{ fontSize: '1.15rem' }}>{obsesion.frase}</p>
               </motion.div>
             ) : (

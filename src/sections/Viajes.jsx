@@ -111,7 +111,7 @@ export default function Viajes() {
       <Reveal>
         <p className="chapter-kicker">capítulo nueve</p>
         <h2 className="chapter-title">mi pasaporte ha trabajado más que yo.</h2>
-        <p className="chapter-sub">sigue bajando: cada scroll despega un vuelo desde lima ✈️</p>
+        <p className="chapter-sub">sigue bajando: cada scroll despega un vuelo desde lima ✈️ y cada punto guarda una foto 📸</p>
       </Reveal>
 
       {/* el sticky vive dentro de este wrapper: al terminar el spacer,
@@ -156,6 +156,18 @@ export default function Viajes() {
                       initial={{ pathLength: 0 }}
                       animate={{ pathLength: 1 }}
                       transition={{ duration: 0.9, ease: 'easeOut' }}
+                    />
+                    {/* halo que late para invitar a tocar el punto */}
+                    <motion.circle
+                      cx={x}
+                      cy={y}
+                      fill="none"
+                      stroke="#8e6bc8"
+                      strokeWidth="1.5"
+                      style={{ pointerEvents: 'none' }}
+                      initial={{ r: 6, opacity: 0 }}
+                      animate={{ r: [6, 15], opacity: [0.55, 0] }}
+                      transition={{ delay: 1, duration: 1.8, repeat: Infinity, ease: 'easeOut' }}
                     />
                     <motion.circle
                       cx={x}
@@ -202,6 +214,31 @@ export default function Viajes() {
                 <br />
                 <span style={{ fontSize: '1rem', color: 'var(--ink-muted)' }}>{popup.frase}</span>
               </figcaption>
+            </motion.div>
+          )}
+
+          {visibles > 0 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              style={{
+                position: 'absolute',
+                bottom: 10,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                background: 'rgba(255,255,255,.88)',
+                borderRadius: 999,
+                padding: '5px 16px',
+                fontFamily: 'var(--hand)',
+                fontSize: '1.1rem',
+                color: '#5e4a8a',
+                boxShadow: '0 2px 10px rgba(94,74,138,.18)',
+                whiteSpace: 'nowrap',
+                pointerEvents: 'none',
+              }}
+            >
+              👆 toca cada puntito para ver la foto de ese viaje
             </motion.div>
           )}
 

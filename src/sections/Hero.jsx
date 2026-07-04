@@ -3,20 +3,21 @@ import * as d3 from 'd3';
 import { motion } from 'framer-motion';
 import Polaroid from '../components/Polaroid.jsx';
 import Reveal from '../components/Reveal.jsx';
+import { foto } from '../lib/fotos.js';
 
 const BURBUJAS = [
-  { id: 'mono', emoji: '🐒', r: 44, frase: 'año del mono. mi animal favorito desde siempre. ¿coincidencia? no creo.' },
-  { id: 'acuario', emoji: '♒', r: 38, frase: 'acuario. y sí, eso explica bastantes cosas.' },
-  { id: 'data', emoji: '📊', r: 50, frase: 'spoiler: la mejor decisión que he tomado.' },
-  { id: 'matcha', emoji: '🍵', r: 44, frase: 'no sé en qué momento pasó, pero ahora cualquier cafetería me gana si vende matcha.' },
-  { id: 'foto', emoji: '📷', r: 42, frase: 'mi celular es básicamente un álbum infinito.' },
-  { id: 'playlists', emoji: '🎵', r: 38, frase: 'tengo playlists para absolutamente todo.' },
-  { id: 'leer', emoji: '📚', r: 36, frase: 'compro libros más rápido de lo que los termino.' },
-  { id: 'hp', emoji: '🧙', r: 42, frase: 'gracias bryan.' },
-  { id: 'ravenclaw', emoji: '🦅', r: 36, frase: 'obviamente soy ravenclaw.' },
-  { id: 'cm', emoji: '📺', r: 38, frase: 'spencer reid fue mi primer crush ficticio.' },
-  { id: 'tiktok', emoji: '📱', r: 34, frase: 'sí... también puedo perder horas en tiktok.' },
-  { id: 'viajes', emoji: '✈️', r: 42, frase: 'mi pasaporte ha trabajado más que yo.' },
+  { id: 'mono', img: 'mono', emoji: '🐒', r: 44, frase: 'año del mono. mi animal favorito desde siempre. ¿coincidencia? no creo.' },
+  { id: 'acuario', img: 'acuario', emoji: '♒', r: 38, frase: 'acuario. y sí, eso explica bastantes cosas.' },
+  { id: 'data', img: 'data_science', emoji: '📊', r: 50, frase: 'spoiler: la mejor decisión que he tomado.' },
+  { id: 'matcha', img: 'matcha', emoji: '🍵', r: 44, frase: 'no sé en qué momento pasó, pero ahora cualquier cafetería me gana si vende matcha.' },
+  { id: 'foto', img: 'lovemylife', emoji: '📷', r: 42, frase: 'mi celular es básicamente un álbum infinito.' },
+  { id: 'playlists', img: 'spotify', emoji: '🎵', r: 38, frase: 'tengo playlists para absolutamente todo.' },
+  { id: 'series', img: 'showslover', emoji: '📺', r: 36, frase: 'amo ver series. puedo maratonear una temporada entera sin culpa.' },
+  { id: 'hp', img: 'harrypotter', emoji: '🧙', r: 42, frase: 'gracias bryan.' },
+  { id: 'ravenclaw', img: 'ravenclaw', emoji: '🦅', r: 36, frase: 'obviamente soy ravenclaw.' },
+  { id: 'cm', img: 'reid', emoji: '📺', r: 38, frase: 'spencer reid fue mi primer crush ficticio.' },
+  { id: 'tiktok', img: 'tiktok', emoji: '📱', r: 34, frase: 'sí... también puedo perder horas en tiktok.' },
+  { id: 'viajes', img: 'viaje', emoji: '✈️', r: 42, frase: 'mi pasaporte ha trabajado más que yo.' },
   { id: 'lila', emoji: '💜', r: 34, frase: 'durante años estuve convencida de que el lila era el mejor color del universo.' },
 ];
 
@@ -57,12 +58,32 @@ function BubbleChart() {
       .attr('stroke', '#8e6bc8')
       .attr('stroke-width', 1.5);
 
-    g.append('text')
-      .text((d) => d.emoji)
-      .attr('text-anchor', 'middle')
-      .attr('dy', '0.36em')
-      .style('font-size', (d) => `${d.r * 0.85}px`)
-      .style('pointer-events', 'none');
+    g.each(function (d) {
+      const nodo = d3.select(this);
+      const src = d.img && foto(d.img);
+      if (src) {
+        const ri = d.r - 2;
+        nodo.append('clipPath').attr('id', `clip-bub-${d.id}`).append('circle').attr('r', ri);
+        nodo
+          .append('image')
+          .attr('href', src)
+          .attr('x', -ri)
+          .attr('y', -ri)
+          .attr('width', ri * 2)
+          .attr('height', ri * 2)
+          .attr('preserveAspectRatio', 'xMidYMid slice')
+          .attr('clip-path', `url(#clip-bub-${d.id})`)
+          .style('pointer-events', 'none');
+      } else {
+        nodo
+          .append('text')
+          .text(d.emoji)
+          .attr('text-anchor', 'middle')
+          .attr('dy', '0.36em')
+          .style('font-size', `${d.r * 0.85}px`)
+          .style('pointer-events', 'none');
+      }
+    });
 
     let t = 0;
     const sim = d3
