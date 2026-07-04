@@ -1,4 +1,6 @@
 node_modules/
 dist/
+# el token de gh no tiene scope "workflow"; se deploya con npm run deploy
+.github/workflows/
 .DS_Store
 *.local
