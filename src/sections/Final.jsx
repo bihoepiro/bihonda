@@ -160,27 +160,85 @@ export default function Final() {
         <HappinessTimeline />
       </div>
 
-      <Reveal className="prose scrolly-block" style={{ margin: '18vh auto', textAlign: 'center', maxWidth: 620 }}>
-        <p className="big">bueno... hasta aquí llega la versión 22.0 de mi historia.</p>
-        <p>si llegaste hasta aquí, gracias por hacer scroll conmigo ❤️</p>
-        <p>
-          todavía me queda un año para terminar la universidad. muchísimos lugares por conocer. muchísimos
-          modelos por entrenar. y seguramente varios plot twists más.
-        </p>
-        <p className="big">pero esos ya serán parte de la siguiente versión.</p>
-      </Reveal>
+      <div className="scrolly-block" style={{ margin: '20vh auto', maxWidth: 760 }}>
+        <motion.div
+          className="nota-final-wrap"
+          initial={{ opacity: 0, y: 40, rotate: -4 }}
+          whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+          viewport={{ once: true, margin: '-12% 0px' }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="nota-final">
+            <span className="washi washi--lila" style={{ top: -14, left: 36, rotate: '-6deg' }} />
+            <span className="washi washi--rosa" style={{ top: -12, right: 42, rotate: '7deg' }} />
+            <p>bueno... hasta aquí llega la versión 22.0 de mi historia.</p>
+            <p>si llegaste hasta el final: gracias por hacer scroll conmigo ❤️</p>
+            <p>
+              quedan lugares por conocer, modelos por entrenar y seguramente varios plot twists más...
+              pero esos capítulos todavía se están escribiendo.
+            </p>
+            <p className="firma">— bihonda</p>
+            <span className="mancha-matcha" style={{ bottom: -18, right: -20 }} />
+          </div>
+
+          <div style={{ position: 'absolute', right: -84, top: -52 }} className="polaroid-final">
+            <Polaroid nombre="fotoprincipal2" width={108} rotate={7} tape caption="yo" emoji="🌷" />
+          </div>
+
+          <motion.div
+            className="ticket-final"
+            style={{ left: -58, bottom: 26, rotate: '-8deg' }}
+            initial={{ opacity: 0, scale: 0.6 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6, type: 'spring', bounce: 0.5 }}
+          >
+            ✈ versión 23.0 · próximamente
+          </motion.div>
+
+          {[
+            { t: '✦', left: '-6%', top: '8%', size: '1.5rem', delay: 0.8 },
+            { t: '❀', left: '103%', top: '55%', size: '1.4rem', delay: 0.95 },
+            { t: '✦', left: '98%', top: '92%', size: '1.1rem', delay: 1.1 },
+            { t: '♡', left: '-8%', top: '68%', size: '1.5rem', delay: 1.2 },
+          ].map((d, i) => (
+            <motion.span
+              key={i}
+              className="deco-final"
+              style={{ left: d.left, top: d.top, fontSize: d.size }}
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: d.delay, type: 'spring', bounce: 0.5 }}
+            >
+              {d.t}
+            </motion.span>
+          ))}
+        </motion.div>
+      </div>
 
       <div className="spotify-cierre">
         <Reveal>
-          <p style={{ fontSize: '2rem', margin: 0 }}>🎵</p>
-          <p className="big" style={{ fontFamily: 'var(--fraunces)' }}>antes de irte...</p>
-          <p className="prose" style={{ margin: '0 auto 1.2rem' }}>
-            si quieres conocerme un poquito más... esta playlist probablemente termine de hacerlo.
-          </p>
-          <a className="btn-spotify" href={spotifyPlaylist} target="_blank" rel="noreferrer">
-            ▶ open spotify playlist
+          <p className="hand" style={{ fontSize: '1.6rem', margin: '0 0 2rem' }}>antes de irte, un último recuerdo:</p>
+        </Reveal>
+        <Reveal delay={0.15}>
+          <a className="cassette" href={spotifyPlaylist} target="_blank" rel="noreferrer">
+            <span className="washi washi--rosa" style={{ top: -15, left: '50%', translate: '-50% 0', rotate: '-3deg' }} />
+            <span className="cassette-play">▶</span>
+            <span className="cassette-label">
+              <span className="cassette-titulo">mixtape · 22 años en canciones</span>
+              <span className="cassette-sub">lado a — para conocerme un poquito más</span>
+            </span>
+            <span className="cassette-window">
+              <span className="reel"><span className="reel-centro" /></span>
+              <span className="cassette-cinta" />
+              <span className="reel"><span className="reel-centro" /></span>
+            </span>
+            <span className="cassette-nota">play en spotify ♪</span>
           </a>
-          <p className="nota-pequena" style={{ marginTop: '3rem' }}>hecho con react, d3 y demasiado matcha 🍵 — bihonda, 2026</p>
+        </Reveal>
+        <Reveal delay={0.3}>
+          <p className="nota-pequena" style={{ marginTop: '3.5rem' }}>hecho con react, d3 y demasiado matcha 🍵 — bihonda, 2026</p>
         </Reveal>
       </div>
     </section>
