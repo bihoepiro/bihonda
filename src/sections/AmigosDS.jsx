@@ -134,19 +134,20 @@ export default function AmigosDS() {
             {i > 0 && <Conector lado={i % 2 ? 'derecha' : 'izquierda'} />}
             <div className={`scrolly-block prose bloque-zz${i % 2 ? ' bloque-zz--inv' : ''}`}>
               <Reveal>
+                <p className="hand" style={{ fontSize: '1.9rem', margin: '0 0 0.5rem' }}>{a.label}</p>
                 <p className="big">{a.texto}</p>
               </Reveal>
-              <div className="foto-fila" style={{ gap: 0 }}>
+              <div className="foto-fila">
                 {a.fotos.map((f, j) => (
                   <Polaroid
                     key={f}
                     nombre={f}
                     width={185}
-                    rotate={(i + j) % 2 ? 4 : -4}
+                    rotate={(i + j) % 2 ? 3 : -3}
                     tape={j === 0}
                     caption={j === 0 ? a.label : undefined}
                     emoji="🫂"
-                    style={j > 0 ? { marginLeft: -42, marginTop: 26, zIndex: 1 } : undefined}
+                    style={j > 0 ? { marginTop: 28 } : undefined}
                   />
                 ))}
               </div>

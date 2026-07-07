@@ -102,7 +102,7 @@ export default function Trabajo() {
           </div>
           <div className="foto-fila">
             <Polaroid nombre="mercedes" width={200} ratio="wide" rotate={-2} tape caption="día uno" emoji="🚗" />
-            <Polaroid nombre="mercedes_equipo" width={200} ratio="wide" rotate={2.5} caption="el equipo" emoji="🤝" style={{ marginLeft: -44, marginTop: 30, zIndex: 1 }} />
+            <Polaroid nombre="mercedes_equipo" width={200} ratio="wide" rotate={2.5} caption="el equipo" emoji="🤝" style={{ marginTop: 30 }} />
           </div>
         </div>
 
@@ -167,7 +167,7 @@ export default function Trabajo() {
           </div>
           <div className="foto-fila">
             <Polaroid nombre="gaby" width={190} rotate={2} caption="con gaby" emoji="💐" />
-            <Polaroid nombre="belcorp_mia" width={190} rotate={-2.5} tape caption="yo, en modo coe" emoji="💻" style={{ marginLeft: -40, marginTop: 26, zIndex: 1 }} />
+            <Polaroid nombre="belcorp_mia" width={190} rotate={-2.5} tape caption="yo, en modo coe" emoji="💻" style={{ marginTop: 26 }} />
           </div>
         </div>
 

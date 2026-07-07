@@ -9,15 +9,15 @@ const spotifyPlaylist =
   'https://open.spotify.com/playlist/1BA6IztOv0g2tBndLzuyPf?si=PdW70y1eRBemxZobBWuZ0w&pi=uIXMIdEWR0ytu';
 
 const WALL = [
-  { nombre: 'collage_familia', left: '2%', top: '3%', rotate: -5, width: 250, caption: 'familia', emoji: '👨‍👩‍👧‍👦' },
-  { nombre: 'collage_amigos', left: '28%', top: '0%', rotate: 4, width: 220, caption: 'amigos', emoji: '🫂' },
-  { nombre: 'collage_ian', left: '58%', top: '5%', rotate: -2, width: 285, ian: true, emoji: '🤍' },
-  { nombre: 'papas', left: '13%', top: '30%', rotate: 3, width: 200, caption: 'ellos dos', emoji: '💞' },
-  { nombre: 'hermanos', left: '40%', top: '27%', rotate: -4, width: 240, caption: 'hermanos', emoji: '👧👦' },
-  { nombre: 'sobrinos_y_yo', left: '69%', top: '38%', rotate: 5, width: 215, caption: 'los enanos y yo', emoji: '🧸' },
-  { nombre: 'collage_fam1', left: '4%', top: '58%', rotate: -3.5, width: 218, caption: 'más nosotros', emoji: '🏡' },
-  { nombre: 'collage_amigos2', left: '33%', top: '56%', rotate: 2.5, width: 200, caption: 'más ellos', emoji: '🥹' },
-  { nombre: 'collage_familia5', left: '61%', top: '68%', rotate: -2, width: 230, caption: 'y más amor', emoji: '💞' },
+  { nombre: 'collage_familia', left: '3%', top: '3%', rotate: -4, width: 235, caption: 'familia', emoji: '👨‍👩‍👧‍👦' },
+  { nombre: 'collage_amigos', left: '33%', top: '0%', rotate: 3.5, width: 215, caption: 'amigos', emoji: '🫂' },
+  { nombre: 'collage_ian', left: '64%', top: '5%', rotate: -2, width: 255, ian: true, emoji: '🤍' },
+  { nombre: 'papas', left: '10%', top: '34%', rotate: 3, width: 200, caption: 'ellos dos', emoji: '💞' },
+  { nombre: 'hermanos', left: '41%', top: '31%', rotate: -3.5, width: 225, caption: 'hermanos', emoji: '👧👦' },
+  { nombre: 'sobrinos_y_yo', left: '70%', top: '42%', rotate: 4, width: 210, caption: 'los enanos y yo', emoji: '🧸' },
+  { nombre: 'collage_fam1', left: '6%', top: '66%', rotate: -3.5, width: 210, caption: 'más nosotros', emoji: '🏡' },
+  { nombre: 'collage_amigos2', left: '36%', top: '63%', rotate: 2.5, width: 200, caption: 'más ellos', emoji: '🥹' },
+  { nombre: 'collage_familia5', left: '66%', top: '73%', rotate: -2, width: 215, caption: 'y más amor', emoji: '💞' },
 ];
 
 const WALL_NOTAS = [
@@ -156,6 +156,7 @@ export default function Final() {
           >
             {w.ian ? (
               <figure className="polaroid" style={{ width: w.width, rotate: `${w.rotate}deg`, margin: 0 }}>
+                <span className="tape" />
                 {foto(w.nombre) ? (
                   <img className="polaroid-img" src={foto(w.nombre)} alt="ian" />
                 ) : (
@@ -164,6 +165,7 @@ export default function Final() {
                     <span className="nombre">{w.nombre}</span>
                   </div>
                 )}
+                <figcaption className="polaroid-caption">ian 🤍</figcaption>
                 <div className="ian-heart">
                   <span style={{ fontSize: '1.8rem' }}>❤️</span>
                   <span>highlight del 2026</span>

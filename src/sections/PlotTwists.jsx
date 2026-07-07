@@ -192,20 +192,6 @@ export default function PlotTwists() {
         <SurvivalChart />
       </div>
 
-      {/* la línea del timeline se estira y se vuelve el tronco del árbol familiar */}
-      <motion.div
-        initial={{ scaleY: 0 }}
-        whileInView={{ scaleY: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-        style={{
-          width: 2,
-          height: '14vh',
-          background: 'var(--lila)',
-          margin: '6vh auto 0',
-          transformOrigin: 'top',
-        }}
-      />
     </section>
   );
 }
