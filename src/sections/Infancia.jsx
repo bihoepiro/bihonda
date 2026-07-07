@@ -219,9 +219,19 @@ export default function Infancia() {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.35 }}
             >
-              <div style={{ display: 'flex', gap: 18, flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                 {historia.fotos.map((f, i) => (
-                  <Polaroid key={f} nombre={f} width={155} rotate={i % 2 ? 3 : -3} drop={false} instant emoji="🧸" />
+                  <Polaroid
+                    key={f}
+                    nombre={f}
+                    width={160}
+                    rotate={i % 2 ? 4 : -4}
+                    drop={false}
+                    instant
+                    tape={i === 0}
+                    emoji="🧸"
+                    style={i > 0 ? { marginLeft: -34, marginTop: 20, zIndex: 1 } : undefined}
+                  />
                 ))}
               </div>
               <p className="big" style={{ marginTop: 18, maxWidth: 420, fontFamily: 'var(--fraunces)' }}>

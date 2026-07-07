@@ -10,21 +10,24 @@ const FOTOS = [
   { nombre: 'mami_y_yo', caption: 'mami y yo', width: 195, rotate: 4, left: '73%', top: 50, float: 5.8 },
   { nombre: 'bryan', caption: 'bryan', width: 185, rotate: 3.5, tape: true, left: '7%', top: 455, float: 6.6 },
   { nombre: 'tania', caption: 'tania', width: 185, rotate: -3.5, left: '71%', top: 465, float: 5.6 },
-  { nombre: 'familia2', caption: 'nosotros, otra vez', width: 262, ratio: 'wide', rotate: 2, tape: true, left: '33%', top: 505, float: 6.0 },
+  { nombre: 'sandra', caption: 'sandra ♡', width: 195, ratio: 'square', rotate: 2.5, tape: true, left: '42%', top: 295, float: 5.2 },
+  { nombre: 'familia2', caption: 'nosotros, otra vez', width: 262, ratio: 'wide', rotate: 2, tape: true, left: '33%', top: 555, float: 6.0 },
 ];
 
 const NOTAS = [
   { t: 'mi fan número uno', left: '1%', top: 378, r: -5, size: '1.3rem' },
   { t: 'la más trabajadora del mundo', left: '69%', top: 372, r: 4, size: '1.3rem' },
-  { t: 'somos cinco', left: '45%', top: 275, r: -3, size: '1.4rem' },
+  { t: 'somos cinco', left: '30%', top: 300, r: -3, size: '1.4rem' },
+  { t: 'mi segunda mamá ♡', left: '59%', top: 440, r: 3, size: '1.25rem' },
+  { t: 'me cuida desde bebé', left: '61%', top: 470, r: 3, size: '1.05rem' },
   { t: 'el culpable de gran parte de mi personalidad', left: '1%', top: 775, r: -3, size: '1.15rem' },
-  { t: 'mi hermana mayor y mejor amiga ♡', left: '65%', top: 782, r: 3, size: '1.2rem' },
+  { t: 'mi hermana mayor y mejor amiga ♡', left: '65%', top: 790, r: 3, size: '1.2rem' },
   { t: '♡', left: '26%', top: 92, r: 0, size: '1.6rem' },
   { t: '♡', left: '70%', top: 20, r: 0, size: '1.2rem' },
   { t: '✦', left: '25%', top: 330, r: 0, size: '1.4rem' },
   { t: '✦', left: '74%', top: 300, r: 0, size: '1.2rem' },
-  { t: '❀', left: '30%', top: 900, r: 8, size: '1.5rem' },
-  { t: 'conmigo desde el día uno ♡', left: '60%', top: 908, r: -3, size: '1.35rem' },
+  { t: '❀', left: '30%', top: 960, r: 8, size: '1.5rem' },
+  { t: 'mi segundo papá. siempre conmigo ♡', left: '60%', top: 968, r: -3, size: '1.35rem' },
 ];
 
 // pequeñas líneas a mano que unen a los papás con los hermanos
@@ -51,7 +54,7 @@ function CollageFamilia() {
       {/* kike: un lugar especial, quieto y con marco antiguo */}
       <motion.div
         className="collage-item"
-        style={{ left: '36%', top: 800 }}
+        style={{ left: '36%', top: 855 }}
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-10% 0px' }}
@@ -103,8 +106,8 @@ export default function Familia() {
         <p className="chapter-kicker">capítulo dos</p>
         <h2 className="chapter-title">la gente que siempre estuvo desde el capítulo uno ❤️</h2>
         <p className="chapter-sub">
-          antes de seguir tengo que presentar al elenco principal: mi familia. siempre he sentido que tuve
-          mucha suerte con la que me tocó.
+          antes de seguir tengo que presentar al elenco principal: mi familia — los de sangre, y los que se
+          volvieron familia. siempre he sentido que tuve mucha suerte con la que me tocó.
         </p>
       </Reveal>
 
