@@ -1,6 +1,7 @@
 import { FotoProvider } from './components/PhotoCounter.jsx';
 import ProgressTracker from './components/ProgressTracker.jsx';
 import PhotoCounterBadge from './components/PhotoCounterBadge.jsx';
+import Musica from './components/Musica.jsx';
 import Hero from './sections/Hero.jsx';
 import PlotTwists from './sections/PlotTwists.jsx';
 import Familia from './sections/Familia.jsx';
@@ -19,6 +20,7 @@ export default function App() {
     <FotoProvider>
       <ProgressTracker />
       <PhotoCounterBadge />
+      <Musica />
       <main>
         <Hero />
         <PlotTwists />
