@@ -25,7 +25,7 @@ const ETAPAS = [
     anio: '2026',
     nombre: 'belcorp · analytics coe',
     cargo: 'practicante de data science',
-    frase: 'todo volvió a empezar. y me encanta.',
+    frase: 'todavía sigo escribiendo este capítulo.',
     color: '#8e6bc8',
   },
 ];
@@ -105,47 +105,53 @@ export default function Trabajo() {
 
         <div className="scrolly-block prose">
           <Reveal>
-            <p className="big">en enero del 2025 llegué a belcorp.</p>
+            <p className="big">en enero del 2025 empezó una etapa que significó muchísimo para mí: entré a belcorp.</p>
             <p>
-              entré al equipo de data platform. ahí conocí personas increíbles que hicieron que esa etapa fuera
-              muchísimo más divertida.
+              llegué al equipo de data platform. aprendí un montón, conocí personas increíbles y confirmé que
+              realmente quería dedicarme a esto.
             </p>
           </Reveal>
           <TarjetaEtapa etapa={ETAPAS[1]} />
-          <div
-            style={{ position: 'relative', display: 'inline-block' }}
-            onMouseEnter={() => setVerPuntos(true)}
-            onMouseLeave={() => setVerPuntos(false)}
-            onClick={() => setVerPuntos((v) => !v)}
-          >
-            <Polaroid nombre="belcorp_amigos" width={280} ratio="wide" rotate={-1.5} tape caption="cada puntito es un amigo" emoji="🫶" />
-            {verPuntos &&
-              PUNTOS_AMIGOS.map((p, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: i * 0.06, type: 'spring', bounce: 0.5 }}
-                  style={{
-                    position: 'absolute',
-                    left: `${p.x}%`,
-                    top: `${p.y}%`,
-                    width: 11,
-                    height: 11,
-                    borderRadius: '50%',
-                    background: '#8e6bc8',
-                    border: '2px solid #fff',
-                    boxShadow: '0 2px 6px rgba(94,74,138,.4)',
-                  }}
-                />
-              ))}
+          <div className="foto-fila">
+            <div
+              style={{ position: 'relative', display: 'inline-block' }}
+              onMouseEnter={() => setVerPuntos(true)}
+              onMouseLeave={() => setVerPuntos(false)}
+              onClick={() => setVerPuntos((v) => !v)}
+            >
+              <Polaroid nombre="belcorp_amigos" width={280} ratio="wide" rotate={-1.5} tape caption="cada punto es una persona que conocí en esta etapa" emoji="🫶" />
+              {verPuntos &&
+                PUNTOS_AMIGOS.map((p, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: i * 0.06, type: 'spring', bounce: 0.5 }}
+                    style={{
+                      position: 'absolute',
+                      left: `${p.x}%`,
+                      top: `${p.y}%`,
+                      width: 11,
+                      height: 11,
+                      borderRadius: '50%',
+                      background: '#8e6bc8',
+                      border: '2px solid #fff',
+                      boxShadow: '0 2px 6px rgba(94,74,138,.4)',
+                    }}
+                  />
+                ))}
+            </div>
+            <Polaroid nombre="belcorp_dp" width={240} ratio="wide" rotate={2} caption="más momentos con el equipo" emoji="💻" />
           </div>
         </div>
 
         <div className="scrolly-block prose">
           <Reveal>
-            <p className="big">y este año me cambié al equipo de analytics coe.</p>
-            <p>todo volvió a empezar. nuevos retos. nuevas personas. y una nueva etapa.</p>
+            <p className="big">un año después llegó un nuevo reto.</p>
+            <p>
+              me cambié al equipo de analytics coe. volver a empezar daba un poco de miedo, pero también
+              significaba aprender cosas nuevas y conocer a más personas.
+            </p>
           </Reveal>
           <TarjetaEtapa etapa={ETAPAS[2]} />
           <div className="foto-fila">

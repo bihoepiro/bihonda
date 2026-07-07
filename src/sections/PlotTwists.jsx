@@ -5,10 +5,10 @@ import Reveal from '../components/Reveal.jsx';
 
 const EVENTOS = [
   { emoji: '🤰', label: 'el anuncio' },
-  { emoji: '👶', label: 'nací igual' },
-  { emoji: '🚗', label: '4 meses' },
-  { emoji: '🥣', label: '6 meses' },
-  { emoji: '🎉', label: '22 años' },
+  { emoji: '👶', label: 'mi llegada' },
+  { emoji: '🚗', label: 'mi primera aventura (4 meses)' },
+  { emoji: '🥣', label: 'descubriendo nuevos sabores (6 meses)' },
+  { emoji: '🎉', label: '22 años después...' },
 ];
 
 const VIDA = [
@@ -115,7 +115,7 @@ export default function PlotTwists() {
     <section id="plot-twists" data-capitulo="plot-twists" className="chapter">
       <Reveal>
         <p className="chapter-kicker">capítulo uno</p>
-        <h2 className="chapter-title">la verdad... mi historia empieza fuerte</h2>
+        <h2 className="chapter-title">¿por dónde empieza una vida?</h2>
       </Reveal>
 
       <div className="tl-horizontal">
@@ -163,9 +163,9 @@ export default function PlotTwists() {
         <Reveal>
           <p>bueno... sobreviví.</p>
           <p>
-            pero seis meses después decidí probar mi primera papilla.
+            pero a los seis meses probé mi primera papilla.
             <br />
-            resultó que era alérgica a herbz.
+            resultó que era alérgica a heinz.
           </p>
           <p className="big">otra vez casi me voy.</p>
         </Reveal>

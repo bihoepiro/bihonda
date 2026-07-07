@@ -53,7 +53,7 @@ export default function Sobrinos() {
     <section id="sobrinos" data-capitulo="familia" className="chapter">
       <Reveal>
         <p className="chapter-kicker">capítulo tres</p>
-        <h2 className="chapter-title">y entonces llegaron ellos ❤️</h2>
+        <h2 className="chapter-title">y entonces llegaron ellos.</h2>
       </Reveal>
 
       <div className="scrolly-block prose">
@@ -61,14 +61,14 @@ export default function Sobrinos() {
           <p className="big">en el 2012 llegó alguien que cambió completamente mi vida.</p>
         </Reveal>
         <div className="foto-fila">
-          <Polaroid nombre="fabi_pasado" width={190} rotate={-3} tape caption="fabianne, versión bebé" emoji="🍼" />
-          <Polaroid nombre="fabi_presente" width={190} rotate={2.5} caption="fabianne, versión actual" emoji="🌟" />
+          <Polaroid nombre="fabi_pasado" width={190} rotate={-3} tape caption="fabianne de bebé" emoji="🍼" />
+          <Polaroid nombre="fabi_presente" width={190} rotate={2.5} caption="fabianne hoy" emoji="🌟" />
         </div>
         <Reveal>
           <p>
-            fabianne. técnicamente es mi sobrina.
+            fabianne es, técnicamente, mi sobrina.
             <br />
-            pero nunca la sentí como mi sobrina.
+            pero nunca la sentí solo como mi sobrina.
           </p>
           <p className="big">siempre fue la hermanita menor que nunca tuve.</p>
         </Reveal>
@@ -76,27 +76,32 @@ export default function Sobrinos() {
 
       <div className="scrolly-block prose">
         <Reveal>
-          <p className="big">en el 2019 llegó luisito, el amor de mi vida.</p>
-          <p>y desde entonces la familia siguió creciendo.</p>
+          <p className="big">en el 2019 llegó luisito.</p>
+          <p>
+            desde que nació, se convirtió en una de mis personas favoritas.
+            <br />
+            no sé cómo explicarlo, simplemente lo amo demasiado.
+          </p>
         </Reveal>
         <div className="foto-fila">
-          <Polaroid nombre="luisito_antes" width={190} rotate={2} caption="luisito de pequeño" emoji="🍼" />
+          <Polaroid nombre="luisito_antes" width={190} rotate={2} caption="luisito de bebé" emoji="🍼" />
           <Polaroid nombre="luisito_presente" width={190} rotate={-2.5} tape caption="luisito hoy" emoji="⚽" />
         </div>
       </div>
 
       <div className="scrolly-block prose">
         <Reveal>
-          <p className="big">y en el 2023 llegó consuelito. mi ahijada ❤️</p>
+          <p className="big">y en el 2023 la familia volvió a crecer con la llegada de consuelito, mi ahijada.</p>
+          <p>todavía siento que hace nada era un bebé, pero ya está creciendo demasiado rápido.</p>
         </Reveal>
         <div className="foto-fila">
-          <Polaroid nombre="consuelito_antes" width={190} rotate={-2} caption="consuelito, capítulo uno" emoji="🍼" />
+          <Polaroid nombre="consuelito_antes" width={190} rotate={-2} caption="consuelito de bebé" emoji="🍼" />
           <Polaroid nombre="consuelito_presente" width={190} rotate={3} tape caption="consuelito hoy" emoji="🎀" />
         </div>
       </div>
 
       <Reveal className="scrolly-block prose">
-        <p className="big">y bueno... ahora la casa siempre tiene alguien corriendo por ahí. 😂</p>
+        <p className="big">y bueno... ahora la casa siempre tiene alguien corriendo por ahí.</p>
       </Reveal>
 
       <div style={{ maxWidth: 640, margin: '6vh 0' }}>

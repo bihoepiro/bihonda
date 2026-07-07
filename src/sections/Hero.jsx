@@ -6,19 +6,19 @@ import Reveal from '../components/Reveal.jsx';
 import { foto } from '../lib/fotos.js';
 
 const BURBUJAS = [
-  { id: 'mono', img: 'mono', emoji: '🐒', r: 44, frase: 'año del mono. mi animal favorito desde siempre. ¿coincidencia? no creo.' },
-  { id: 'acuario', img: 'acuario', emoji: '♒', r: 38, frase: 'acuario. y sí, eso explica bastantes cosas.' },
-  { id: 'data', img: 'data_science', emoji: '📊', r: 50, frase: 'spoiler: la mejor decisión que he tomado.' },
-  { id: 'matcha', img: 'matcha', emoji: '🍵', r: 44, frase: 'no sé en qué momento pasó, pero ahora cualquier cafetería me gana si vende matcha.' },
-  { id: 'foto', img: 'lovemylife', emoji: '📷', r: 42, frase: 'mi celular es básicamente un álbum infinito.' },
-  { id: 'playlists', img: 'spotify', emoji: '🎵', r: 38, frase: 'tengo playlists para absolutamente todo.' },
-  { id: 'series', img: 'showslover', emoji: '📺', r: 36, frase: 'amo ver series. puedo maratonear una temporada entera sin culpa.' },
-  { id: 'hp', img: 'harrypotter', emoji: '🧙', r: 42, frase: 'gracias bryan.' },
-  { id: 'ravenclaw', img: 'ravenclaw', emoji: '🦅', r: 36, frase: 'obviamente soy ravenclaw.' },
-  { id: 'cm', img: 'reid', emoji: '📺', r: 38, frase: 'spencer reid fue mi primer crush ficticio.' },
-  { id: 'tiktok', img: 'tiktok', emoji: '📱', r: 34, frase: 'sí... también puedo perder horas en tiktok.' },
-  { id: 'viajes', img: 'viaje', emoji: '✈️', r: 42, frase: 'mi pasaporte ha trabajado más que yo.' },
-  { id: 'lila', emoji: '💜', r: 34, frase: 'durante años estuve convencida de que el lila era el mejor color del universo.' },
+  { id: 'mono', img: 'mono', emoji: '🐒', r: 44, frase: 'nací en el año del mono. siempre ha sido mi animal favorito.' },
+  { id: 'acuario', img: 'acuario', emoji: '♒', r: 38, frase: 'soy acuario y creo que con eso me podrán entender.' },
+  { id: 'data', img: 'data_science', emoji: '📊', r: 50, frase: 'ya quiero ser una data scientist.' },
+  { id: 'matcha', img: 'matcha', emoji: '🍵', r: 44, frase: 'claramente hay algo mejor que un café: un matcha.' },
+  { id: 'foto', img: 'lovemylife', emoji: '📷', r: 42, frase: 'probablemente estoy tomando fotos a todo lo que esté pasando.' },
+  { id: 'playlists', img: 'spotify', emoji: '🎵', r: 38, frase: 'tengo playlists para casi cualquier momento.' },
+  { id: 'series', img: 'showslover', emoji: '📺', r: 36, frase: 'soy adicta a las series, así que probablemente ya vi tu serie favorita.' },
+  { id: 'hp', img: 'harrypotter', emoji: '🧙', r: 42, frase: 'todo empezó porque bryan me convenció de ver harry potter.' },
+  { id: 'ravenclaw', img: 'ravenclaw', emoji: '🦅', r: 36, frase: 'sí, soy ravenclaw.' },
+  { id: 'cm', img: 'reid', emoji: '📺', r: 38, frase: 'spencer reid fue mi primer amor ficticio.' },
+  { id: 'tiktok', img: 'tiktok', emoji: '📱', r: 34, frase: 'tiktok es mi perdición.' },
+  { id: 'viajes', img: 'viaje', emoji: '✈️', r: 42, frase: 'todo lo que involucre subirme a un avión, me tienen incluida.' },
+  { id: 'lila', emoji: '💜', r: 34, frase: 'por años mi color favorito fue el lila.' },
 ];
 
 const PARTICULAS = Array.from({ length: 14 }, (_, i) => ({
@@ -163,8 +163,8 @@ export default function Hero() {
             <p className="hero-tagline">22 años resumidos en datos, fotos y demasiados plot twists.</p>
           </Reveal>
           <div className="hero-foto-wrap">
-            <Polaroid nombre="fotoprincipal" width={300} rotate={-2.5} tape caption="hola, soy yo ✨" emoji="🌷" />
-            <Polaroid nombre="fotoprincipal2" width={170} rotate={3.5} caption="también soy yo" emoji="🫶" />
+            <Polaroid nombre="fotoprincipal" width={300} rotate={-2.5} tape caption="hola, soy bobi" emoji="🌷" />
+            <Polaroid nombre="yo_bebe" width={170} rotate={3.5} caption="yo, versión 2004" emoji="🍼" />
           </div>
         </div>
         <Reveal delay={0.25}>
@@ -174,13 +174,13 @@ export default function Hero() {
 
       <div className="hero-narracion prose">
         <Reveal>
-          <p className="big">hola 👋 soy bihonda.</p>
+          <p className="big">hola, soy bihonda.</p>
           <p>bueno... mis amigos me dicen biho, pijo o bobi.</p>
         </Reveal>
         <Reveal delay={0.1}>
           <p>
-            nací un 10 de febrero del 2004. soy acuario ♒ y creo que eso explica bastantes cosas de mi
-            personalidad. además nací en el año chino del mono 🐒, que casualmente siempre ha sido mi animal
+            nací un 10 de febrero del 2004. soy acuario y creo que eso explica bastantes cosas de mi
+            personalidad. además nací en el año chino del mono, que casualmente siempre ha sido mi animal
             favorito.
           </p>
         </Reveal>
@@ -188,7 +188,7 @@ export default function Hero() {
           <p className="big">
             y bueno... esta es mi vida contada como probablemente la contaría alguien que estudia data science.
           </p>
-          <p className="hand">↓ sigue bajando, te prometo que se pone bueno</p>
+          <p className="hand">↓ sigue bajando, te prometo que será interesante</p>
         </Reveal>
       </div>
     </section>

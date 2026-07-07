@@ -1,37 +1,18 @@
-import { useMemo } from 'react';
-import { sankey, sankeyLinkHorizontal } from 'd3-sankey';
 import { motion } from 'framer-motion';
 import Polaroid from '../components/Polaroid.jsx';
 import Reveal from '../components/Reveal.jsx';
 
-const W = 760;
-const H = 300;
+const W = 800;
+const H = 150;
+
+const PASOS = [
+  { label: 'bioingeniería', anio: '2021' },
+  { label: 'cambio de carrera', anio: '2023' },
+  { label: 'data science', anio: '2023' },
+  { label: 'belcorp', anio: '2025' },
+];
 
 export default function Carrera() {
-  const { nodes, links } = useMemo(() => {
-    const gen = sankey()
-      .nodeWidth(14)
-      .nodePadding(40)
-      .extent([
-        [10, 20],
-        [W - 10, H - 20],
-      ]);
-    return gen({
-      nodes: [
-        { name: 'bioingeniería' },
-        { name: 'cambio de carrera' },
-        { name: 'data science' },
-        { name: 'belcorp' },
-      ].map((d) => ({ ...d })),
-      links: [
-        { source: 0, target: 1, value: 10 },
-        { source: 1, target: 2, value: 14 },
-        { source: 2, target: 3, value: 18 },
-      ].map((d) => ({ ...d })),
-    });
-  }, []);
-
-  const path = sankeyLinkHorizontal();
 
   return (
     <section id="data-science" data-capitulo="data-science" className="chapter tech-bg" style={{ maxWidth: 'none' }}>
@@ -59,45 +40,43 @@ export default function Carrera() {
 
         <div className="scrolly-block">
           <Reveal>
-            <p className="hand" style={{ textAlign: 'center' }}>y entonces el camino encontró otra ruta:</p>
+            <p className="hand" style={{ textAlign: 'center' }}>mi ruta, resumida:</p>
           </Reveal>
           <svg viewBox={`0 0 ${W} ${H}`} className="chart-svg" role="img" aria-label="de bioingeniería a data science">
-            {links.map((l, i) => (
-              <motion.path
-                key={i}
-                d={path(l)}
-                fill="none"
-                stroke={i === 0 ? '#c8a2ff' : '#8e6bc8'}
-                strokeOpacity={i === 0 ? 0.45 : 0.55}
-                strokeWidth={Math.max(1, l.width)}
-                initial={{ opacity: 0, pathLength: 0 }}
-                whileInView={{ opacity: 1, pathLength: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: i * 0.55 }}
-              />
-            ))}
-            {nodes.map((n, i) => (
-              <motion.g
-                key={n.name}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.5 }}
-              >
-                <rect x={n.x0} y={n.y0} width={n.x1 - n.x0} height={n.y1 - n.y0} rx="6" fill="#5e4a8a" />
-                <text
-                  x={n.x0 < W / 2 ? n.x1 + 10 : n.x0 - 10}
-                  y={(n.y0 + n.y1) / 2}
-                  dy="0.35em"
-                  textAnchor={n.x0 < W / 2 ? 'start' : 'end'}
-                  style={{ fontFamily: 'var(--fraunces)', fontSize: 17, fontWeight: 600, fill: '#222' }}
+            <motion.line
+              x1={70}
+              y1={70}
+              x2={W - 70}
+              y2={70}
+              stroke="#d9cdf0"
+              strokeWidth="2.5"
+              initial={{ pathLength: 0 }}
+              whileInView={{ pathLength: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.6, ease: 'easeInOut' }}
+            />
+            {PASOS.map((p, i) => {
+              const x = 70 + (i * (W - 140)) / (PASOS.length - 1);
+              const ultimo = i === PASOS.length - 1;
+              return (
+                <motion.g
+                  key={p.label}
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + i * 0.4, type: 'spring', bounce: 0.45 }}
                 >
-                  {n.name}
-                </text>
-              </motion.g>
-            ))}
+                  <circle cx={x} cy={70} r={ultimo ? 10 : 7} fill={ultimo ? '#5e4a8a' : '#fff'} stroke="#8e6bc8" strokeWidth="2" />
+                  <text x={x} y={42} textAnchor="middle" style={{ fontFamily: 'var(--fraunces)', fontSize: 14, fill: '#6b6b6b' }}>
+                    {p.anio}
+                  </text>
+                  <text x={x} y={104} textAnchor="middle" style={{ fontFamily: 'var(--hand)', fontSize: 18, fill: '#5e4a8a' }}>
+                    {p.label}
+                  </text>
+                </motion.g>
+              );
+            })}
           </svg>
-          <p className="chart-note">el flujo se hace más ancho porque la decisión fue ganando fuerza</p>
         </div>
 
         <div className="scrolly-block prose">

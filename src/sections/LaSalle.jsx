@@ -11,9 +11,30 @@ const ANIOS = [
 ];
 
 const PERSONAS = [
-  { id: 'maria', label: 'maría', foto: 'maria', ang: -0.9, frase: 'mi cristina yang. si alguien entiende esa referencia... sabe exactamente por qué.' },
-  { id: 'valery', label: 'valeri', foto: 'valery', ang: 0.35, frase: 'somos completamente opuestas. y creo que justamente por eso nos llevamos tan bien.' },
-  { id: 'profes', label: 'profesores', foto: 'profesores_lasalle', ang: 2.3, frase: 'ellos enseñaron una forma distinta de ver el mundo.' },
+  {
+    id: 'maria',
+    label: 'maría',
+    foto: 'maria',
+    ang: -0.9,
+    frase: 'mi cristina yang. si alguien entiende esa referencia... sabe exactamente por qué.',
+    momento: 'maría es mi cristina yang. si alguien entiende esa referencia... sabe exactamente por qué.',
+  },
+  {
+    id: 'valery',
+    label: 'valeri',
+    foto: 'valery',
+    ang: 0.35,
+    frase: 'somos completamente opuestas. y creo que justamente por eso nos llevamos tan bien.',
+    momento: 'con valeri somos completamente opuestas. y creo que justamente por eso nos llevamos tan bien.',
+  },
+  {
+    id: 'profes',
+    label: 'profesores',
+    foto: 'profesores_lasalle',
+    ang: 2.3,
+    frase: 'ellos enseñaron una forma distinta de ver el mundo.',
+    momento: 'y mis profesores me enseñaron una forma distinta de ver el mundo.',
+  },
 ];
 
 function NetworkLaSalle() {
@@ -151,10 +172,19 @@ export default function LaSalle() {
 
       <div className="scrolly-block">
         <Reveal>
-          <p className="hand" style={{ textAlign: 'center' }}>las personas &gt; las notas</p>
+          <p className="hand" style={{ textAlign: 'center' }}>si tuviera que resumir esa etapa en personas:</p>
         </Reveal>
         <NetworkLaSalle />
       </div>
+
+      {PERSONAS.map((p, i) => (
+        <div className="scrolly-block prose" key={p.id}>
+          <Reveal>
+            <p className="big">{p.momento}</p>
+          </Reveal>
+          <Polaroid nombre={p.foto} width={210} rotate={i % 2 ? 2.5 : -2.5} tape={i % 2 === 0} caption={p.label} emoji="🫂" />
+        </div>
+      ))}
 
       <Reveal className="prose scrolly-block">
         <p className="big">cuando pienso en la salle no pienso en tareas.</p>
