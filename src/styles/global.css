@@ -478,6 +478,42 @@ img { max-width: 100%; display: block; }
   z-index: 30;
 }
 
+/* ---------- collage infancia ---------- */
+
+.collage-infancia {
+  position: relative;
+  min-height: 590px;
+  margin: 3.5rem 0 1rem;
+}
+
+.collage-item { position: absolute; }
+
+.collage-nota {
+  position: absolute;
+  font-family: var(--hand);
+  color: var(--lila-deep);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.collage-doodle {
+  position: absolute;
+  pointer-events: none;
+  overflow: visible;
+}
+
+@media (max-width: 900px) {
+  .collage-infancia {
+    min-height: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+    justify-content: center;
+  }
+  .collage-item { position: static; }
+  .collage-nota, .collage-doodle { display: none; }
+}
+
 /* ---------- memory wall ---------- */
 
 .memory-wall {

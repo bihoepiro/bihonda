@@ -53,6 +53,84 @@ const HISTORIAS = {
   'relatos mágicos': { fotos: ['bryan_infancia'], texto: 'los leíamos con bryan hasta quedarnos dormidos.' },
 };
 
+const COLLAGE = [
+  { nombre: 'vestido_lila', caption: 'el famoso vestido lila', width: 220, rotate: -4, tape: true, left: '0%', top: 40, float: 5.2 },
+  { nombre: 'cantando', caption: 'mi era de artista', width: 205, rotate: 3.5, left: '21%', top: 190, float: 6.1 },
+  { nombre: '1anio', caption: 'mi primer añito', width: 225, rotate: -2.5, tape: true, left: '44%', top: 10, float: 5.6 },
+  { nombre: 'collage_yobebe', caption: 'mini yo', width: 230, rotate: 4, left: '68%', top: 170, float: 6.6 },
+];
+
+const NOTAS = [
+  { texto: 'bailaba ♪', left: '13%', top: 6, rotate: -6, delay: 0.5, size: '1.5rem' },
+  { texto: 'cantaba a todo volumen', left: '26%', top: 545, rotate: 3, delay: 0.75, size: '1.35rem' },
+  { texto: 'todo era lila', left: '3%', top: 430, rotate: -5, delay: 1, size: '1.4rem' },
+  { texto: 'banda sonora: nickelodeon', left: '66%', top: 96, rotate: 4, delay: 1.15, size: '1.25rem' },
+  { texto: '✦', left: '39%', top: 100, rotate: 0, delay: 1.3, size: '1.5rem' },
+  { texto: '✦', left: '64%', top: 40, rotate: 0, delay: 1.45, size: '1.1rem' },
+  { texto: '❀', left: '95%', top: 130, rotate: 10, delay: 1.55, size: '1.4rem' },
+  { texto: '✦', left: '17%', top: 500, rotate: 0, delay: 1.65, size: '1.2rem' },
+  { texto: '♡', left: '92%', top: 540, rotate: -8, delay: 1.75, size: '1.5rem' },
+];
+
+function CollageInfancia() {
+  return (
+    <div className="collage-infancia">
+      {COLLAGE.map((c, i) => (
+        <motion.div
+          key={c.nombre}
+          className="collage-item"
+          style={{ left: c.left, top: c.top }}
+          animate={{ y: [0, -9, 0] }}
+          transition={{ duration: c.float, repeat: Infinity, ease: 'easeInOut', delay: i * 0.6 }}
+        >
+          <Polaroid nombre={c.nombre} caption={c.caption} width={c.width} rotate={c.rotate} tape={c.tape} emoji="🧸" />
+        </motion.div>
+      ))}
+
+      {NOTAS.map((n, i) => (
+        <motion.span
+          key={`${n.texto}-${i}`}
+          className="collage-nota"
+          style={{ left: n.left, top: n.top, rotate: `${n.rotate}deg`, fontSize: n.size }}
+          initial={{ opacity: 0, scale: 0.5 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: n.delay, type: 'spring', bounce: 0.5 }}
+        >
+          {n.texto}
+        </motion.span>
+      ))}
+
+      {/* flechita dibujada a mano: de la nota "todo era lila" hacia el vestido */}
+      <svg className="collage-doodle" viewBox="0 0 90 70" style={{ left: '7.5%', top: 372, width: 64 }}>
+        <motion.path
+          d="M70 62 C 62 40, 42 26, 18 14"
+          fill="none"
+          stroke="#8e6bc8"
+          strokeWidth="2"
+          strokeLinecap="round"
+          initial={{ pathLength: 0, opacity: 0 }}
+          whileInView={{ pathLength: 1, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 1.2, duration: 0.7, ease: 'easeOut' }}
+        />
+        <motion.path
+          d="M30 10 L 18 14 L 26 25"
+          fill="none"
+          stroke="#8e6bc8"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 1.85, duration: 0.3 }}
+        />
+      </svg>
+    </div>
+  );
+}
+
 const W = 760;
 const H = 440;
 
@@ -111,26 +189,16 @@ export default function Infancia() {
   const historia = HISTORIAS[activa];
 
   return (
-    <section id="infancia" data-capitulo="infancia" className="chapter chapter--wide">
+    <section id="infancia" data-capitulo="infancia" className="chapter">
       <Reveal>
         <p className="chapter-kicker">capítulo cuatro</p>
         <h2 className="chapter-title">mi infancia en pocas palabras</h2>
+        <p className="chapter-sub">
+          dejando de lado mis intentos de abandonar este mundo cuando era bebé... tuve una infancia muy feliz.
+        </p>
       </Reveal>
 
-      <div className="prose scrolly-block" style={{ marginTop: '4vh' }}>
-        <Reveal>
-          <p>dejando de lado mis intentos de abandonar este mundo cuando era bebé...</p>
-          <p className="big">tuve una infancia muy feliz.</p>
-          <p>
-            bailaba. cantaba. y durante muchos años estuve convencida de que el lila era el mejor color del
-            universo.
-          </p>
-        </Reveal>
-        <div className="foto-fila">
-          <Polaroid nombre="vestido_lila" width={190} rotate={-2.5} tape caption="el famoso vestido lila" emoji="💜" />
-          <Polaroid nombre="cantando" width={190} rotate={2} caption="mi era de artista" emoji="🎤" />
-        </div>
-      </div>
+      <CollageInfancia />
 
       <Reveal>
         <p className="hand" style={{ fontSize: '1.6rem', marginBottom: 0 }}>
