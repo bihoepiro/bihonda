@@ -181,7 +181,7 @@ export default function LaSalle() {
       {PERSONAS.map((p, i) => (
         <div key={p.id}>
           {i > 0 && <Conector lado={i % 2 ? 'derecha' : 'izquierda'} />}
-          <div className="scrolly-block prose">
+          <div className={`scrolly-block prose bloque-zz${i % 2 ? ' bloque-zz--inv' : ''}`}>
             <Reveal>
               <p className="big">{p.momento}</p>
             </Reveal>

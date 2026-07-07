@@ -23,7 +23,7 @@ export default function Carrera() {
           <h2 className="chapter-title">spoiler: estaba en la carrera equivocada.</h2>
         </Reveal>
 
-        <div className="scrolly-block prose">
+        <div className="scrolly-block prose bloque-zz">
           <Reveal>
             <p className="big">entré a utec en bioingeniería.</p>
             <p>si soy completamente sincera... nunca terminé de sentir que pertenecía ahí.</p>
@@ -33,7 +33,7 @@ export default function Carrera() {
 
         <Conector lado="derecha" />
 
-        <div className="scrolly-block prose">
+        <div className="scrolly-block prose bloque-zz bloque-zz--inv">
           <Reveal>
             <p>aprendí muchísimo. hice amigos.</p>
             <p className="big">pero siempre sentía que me faltaba algo.</p>
@@ -86,7 +86,7 @@ export default function Carrera() {
 
         <Conector lado="derecha" />
 
-        <div className="scrolly-block prose">
+        <div className="scrolly-block prose bloque-zz">
           <Reveal>
             <p className="big">en el 2023 decidí cambiarme de carrera.</p>
             <p className="big" style={{ color: 'var(--lila-deep)' }}>

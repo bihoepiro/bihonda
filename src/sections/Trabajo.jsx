@@ -88,33 +88,37 @@ export default function Trabajo() {
           <h2 className="chapter-title">¿cómo terminé trabajando en mercedes-benz... y después en belcorp?</h2>
         </Reveal>
 
-        <div className="scrolly-block prose">
-          <Reveal>
-            <p className="big">en mayo del 2024 conseguí mis primeras prácticas.</p>
-            <p>
-              técnicamente fue divemotor...
-              <br />
-              pero decir mercedes-benz suena muchísimo más fancy.
-            </p>
-          </Reveal>
-          <TarjetaEtapa etapa={ETAPAS[0]} />
+        <div className="scrolly-block prose bloque-zz">
+          <div>
+            <Reveal>
+              <p className="big">en mayo del 2024 conseguí mis primeras prácticas.</p>
+              <p>
+                técnicamente fue divemotor...
+                <br />
+                pero decir mercedes-benz suena muchísimo más fancy.
+              </p>
+            </Reveal>
+            <TarjetaEtapa etapa={ETAPAS[0]} />
+          </div>
           <div className="foto-fila">
             <Polaroid nombre="mercedes" width={200} ratio="wide" rotate={-2} tape caption="día uno" emoji="🚗" />
-            <Polaroid nombre="mercedes_equipo" width={200} ratio="wide" rotate={2.5} caption="el equipo" emoji="🤝" />
+            <Polaroid nombre="mercedes_equipo" width={200} ratio="wide" rotate={2.5} caption="el equipo" emoji="🤝" style={{ marginLeft: -44, marginTop: 30, zIndex: 1 }} />
           </div>
         </div>
 
         <Conector lado="izquierda" nota="siguiente parada:" />
 
-        <div className="scrolly-block prose">
-          <Reveal>
-            <p className="big">en enero del 2025 empezó una etapa que significó muchísimo para mí: entré a belcorp.</p>
-            <p>
-              llegué al equipo de data platform. aprendí un montón, conocí personas increíbles y confirmé que
-              realmente quería dedicarme a esto.
-            </p>
-          </Reveal>
-          <TarjetaEtapa etapa={ETAPAS[1]} />
+        <div className="scrolly-block prose bloque-zz bloque-zz--inv">
+          <div>
+            <Reveal>
+              <p className="big">en enero del 2025 empezó una etapa que significó muchísimo para mí: entré a belcorp.</p>
+              <p>
+                llegué al equipo de data platform. aprendí un montón, conocí personas increíbles y confirmé que
+                realmente quería dedicarme a esto.
+              </p>
+            </Reveal>
+            <TarjetaEtapa etapa={ETAPAS[1]} />
+          </div>
           <div className="foto-fila">
             <div
               style={{ position: 'relative', display: 'inline-block' }}
@@ -150,18 +154,20 @@ export default function Trabajo() {
 
         <Conector lado="derecha" />
 
-        <div className="scrolly-block prose">
-          <Reveal>
-            <p className="big">un año después llegó un nuevo reto.</p>
-            <p>
-              me cambié al equipo de analytics coe. volver a empezar daba un poco de miedo, pero también
-              significaba aprender cosas nuevas y conocer a más personas.
-            </p>
-          </Reveal>
-          <TarjetaEtapa etapa={ETAPAS[2]} />
+        <div className="scrolly-block prose bloque-zz">
+          <div>
+            <Reveal>
+              <p className="big">un año después llegó un nuevo reto.</p>
+              <p>
+                me cambié al equipo de analytics coe. volver a empezar daba un poco de miedo, pero también
+                significaba aprender cosas nuevas y conocer a más personas.
+              </p>
+            </Reveal>
+            <TarjetaEtapa etapa={ETAPAS[2]} />
+          </div>
           <div className="foto-fila">
             <Polaroid nombre="gaby" width={190} rotate={2} caption="con gaby" emoji="💐" />
-            <Polaroid nombre="belcorp_mia" width={190} rotate={-2.5} tape caption="yo, en modo coe" emoji="💻" />
+            <Polaroid nombre="belcorp_mia" width={190} rotate={-2.5} tape caption="yo, en modo coe" emoji="💻" style={{ marginLeft: -40, marginTop: 26, zIndex: 1 }} />
           </div>
         </div>
 

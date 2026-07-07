@@ -136,7 +136,7 @@ export default function PlotTwists() {
         />
       </div>
 
-      <div className="scrolly-block prose">
+      <div className="scrolly-block prose bloque-zz">
         <Reveal>
           <p className="big">antes de empezar... tengo que contar un pequeño detalle.</p>
           <p>
@@ -150,7 +150,7 @@ export default function PlotTwists() {
 
       <Conector lado="derecha" nota="plot twist #1" />
 
-      <div className="scrolly-block prose">
+      <div className="scrolly-block prose bloque-zz bloque-zz--inv">
         <Reveal>
           <p>
             todo iba bastante bien...
@@ -164,7 +164,7 @@ export default function PlotTwists() {
 
       <Conector lado="izquierda" nota="plot twist #2" />
 
-      <div className="scrolly-block prose">
+      <div className="scrolly-block prose bloque-zz">
         <Reveal>
           <p>bueno... sobreviví.</p>
           <p>

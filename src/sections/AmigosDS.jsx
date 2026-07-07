@@ -132,7 +132,7 @@ export default function AmigosDS() {
         {AMIGOS.map((a, i) => (
           <div key={a.id}>
             {i > 0 && <Conector lado={i % 2 ? 'derecha' : 'izquierda'} />}
-            <div className="scrolly-block prose">
+            <div className={`scrolly-block prose bloque-zz${i % 2 ? ' bloque-zz--inv' : ''}`}>
               <Reveal>
                 <p className="big">{a.texto}</p>
               </Reveal>
