@@ -42,7 +42,7 @@ const HISTORIAS = {
     texto:
       'gran parte de mi infancia también la pasé jugando con fer y valeria. creo que ninguno imaginaba lo rápido que iba a pasar el tiempo.',
   },
-  vicky: { fotos: ['vicky'], texto: 'y gran parte de mis vacaciones a trujillo las pasaba con mi prima vicky.' },
+  vicky: { fotos: ['vicky', 'vicky2'], texto: 'y gran parte de mis vacaciones a trujillo las pasaba con mi prima vicky.' },
   nena: {
     fotos: ['nena1', 'nena2'],
     texto: 'y en el 2016 llegó nena. una bichón maltés que decidió convertirse en la dueña absoluta de la casa. 🐾',

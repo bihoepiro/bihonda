@@ -9,15 +9,25 @@ const spotifyPlaylist =
   'https://open.spotify.com/playlist/1BA6IztOv0g2tBndLzuyPf?si=PdW70y1eRBemxZobBWuZ0w&pi=uIXMIdEWR0ytu';
 
 const WALL = [
-  { nombre: 'collage_familia', left: '4%', top: '6%', rotate: -4, width: 230, caption: 'familia', emoji: '👨‍👩‍👧‍👦' },
-  { nombre: 'collage_amigos', left: '36%', top: '2%', rotate: 3, width: 215, caption: 'amigos', emoji: '🫂' },
-  { nombre: 'collage_ian', left: '66%', top: '10%', rotate: -2, width: 260, ian: true, emoji: '🤍' },
-  { nombre: 'papas', left: '10%', top: '48%', rotate: 2.5, width: 210, caption: 'ellos dos', emoji: '💞' },
-  { nombre: 'hermanos', left: '40%', top: '52%', rotate: -3, width: 220, caption: 'hermanos', emoji: '👧👦' },
-  { nombre: 'sobrinos_y_yo', left: '69%', top: '56%', rotate: 4, width: 215, caption: 'los enanos y yo', emoji: '🧸' },
-  { nombre: 'collage_fam1', left: '7%', top: '76%', rotate: -3.5, width: 205, caption: 'más nosotros', emoji: '🏡' },
-  { nombre: 'collage_amigos2', left: '38%', top: '80%', rotate: 2.5, width: 205, caption: 'más ellos', emoji: '🥹' },
-  { nombre: 'collage_familia5', left: '68%', top: '77%', rotate: -2, width: 205, caption: 'y más amor', emoji: '💞' },
+  { nombre: 'collage_familia', left: '2%', top: '3%', rotate: -5, width: 250, caption: 'familia', emoji: '👨‍👩‍👧‍👦' },
+  { nombre: 'collage_amigos', left: '28%', top: '0%', rotate: 4, width: 220, caption: 'amigos', emoji: '🫂' },
+  { nombre: 'collage_ian', left: '58%', top: '5%', rotate: -2, width: 285, ian: true, emoji: '🤍' },
+  { nombre: 'papas', left: '13%', top: '30%', rotate: 3, width: 200, caption: 'ellos dos', emoji: '💞' },
+  { nombre: 'hermanos', left: '40%', top: '27%', rotate: -4, width: 240, caption: 'hermanos', emoji: '👧👦' },
+  { nombre: 'sobrinos_y_yo', left: '69%', top: '38%', rotate: 5, width: 215, caption: 'los enanos y yo', emoji: '🧸' },
+  { nombre: 'collage_fam1', left: '4%', top: '58%', rotate: -3.5, width: 218, caption: 'más nosotros', emoji: '🏡' },
+  { nombre: 'collage_amigos2', left: '33%', top: '56%', rotate: 2.5, width: 200, caption: 'más ellos', emoji: '🥹' },
+  { nombre: 'collage_familia5', left: '61%', top: '68%', rotate: -2, width: 230, caption: 'y más amor', emoji: '💞' },
+];
+
+const WALL_NOTAS = [
+  { t: 'mi gente favorita ♡', left: '44%', top: '21%', r: -4, size: '1.5rem' },
+  { t: '✦', left: '25%', top: '26%', r: 0, size: '1.5rem' },
+  { t: '✦', left: '65%', top: '33%', r: 0, size: '1.2rem' },
+  { t: '❀', left: '9%', top: '54%', r: 8, size: '1.4rem' },
+  { t: '♡', left: '58%', top: '62%', r: -6, size: '1.5rem' },
+  { t: 'gracias por tanto', left: '30%', top: '88%', r: 3, size: '1.35rem' },
+  { t: '✦', left: '90%', top: '90%', r: 0, size: '1.3rem' },
 ];
 
 const FELICIDAD = [
@@ -121,6 +131,19 @@ export default function Final() {
       </Reveal>
 
       <div className="memory-wall">
+        {WALL_NOTAS.map((n, i) => (
+          <motion.span
+            key={`nota-${i}`}
+            className="collage-nota"
+            style={{ left: n.left, top: n.top, rotate: `${n.r}deg`, fontSize: n.size, zIndex: 2 }}
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 1.4 + i * 0.15, type: 'spring', bounce: 0.5 }}
+          >
+            {n.t}
+          </motion.span>
+        ))}
         {WALL.map((w, i) => (
           <motion.div
             key={w.nombre}

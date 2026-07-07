@@ -136,9 +136,18 @@ export default function AmigosDS() {
               <Reveal>
                 <p className="big">{a.texto}</p>
               </Reveal>
-              <div className="foto-fila">
+              <div className="foto-fila" style={{ gap: 0 }}>
                 {a.fotos.map((f, j) => (
-                  <Polaroid key={f} nombre={f} width={185} rotate={(i + j) % 2 ? 2.5 : -2.5} tape={j === 0} emoji="🫂" />
+                  <Polaroid
+                    key={f}
+                    nombre={f}
+                    width={185}
+                    rotate={(i + j) % 2 ? 4 : -4}
+                    tape={j === 0}
+                    caption={j === 0 ? a.label : undefined}
+                    emoji="🫂"
+                    style={j > 0 ? { marginLeft: -42, marginTop: 26, zIndex: 1 } : undefined}
+                  />
                 ))}
               </div>
             </div>

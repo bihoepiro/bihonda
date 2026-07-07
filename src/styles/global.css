@@ -368,7 +368,7 @@ img { max-width: 100%; display: block; }
 
 /* ---------- narrativa scrolly genérica ---------- */
 
-.scrolly-block { margin: 22vh 0; }
+.scrolly-block { margin: 16vh 0; }
 .scrolly-block:first-of-type { margin-top: 8vh; }
 
 /* ---------- conectores entre bloques ---------- */
@@ -542,6 +542,17 @@ img { max-width: 100%; display: block; }
   margin: 3.5rem 0 1rem;
 }
 
+.collage-familia {
+  position: relative;
+  min-height: 1090px;
+  margin: 3rem 0 1rem;
+}
+
+.polaroid--vintage { background: #fbf5e7; border: 1px solid #eadfc6; }
+.polaroid--vintage .polaroid-img { filter: sepia(0.18) saturate(0.92); }
+
+.washi--dorado { background: rgba(233, 199, 128, 0.42); }
+
 .collage-item { position: absolute; }
 
 .collage-nota {
@@ -559,7 +570,8 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 900px) {
-  .collage-infancia {
+  .collage-infancia,
+  .collage-familia {
     min-height: 0;
     display: flex;
     flex-wrap: wrap;
@@ -568,13 +580,14 @@ img { max-width: 100%; display: block; }
   }
   .collage-item { position: static; }
   .collage-nota, .collage-doodle { display: none; }
+  .memory-wall .collage-nota { display: none; }
 }
 
 /* ---------- memory wall ---------- */
 
 .memory-wall {
   position: relative;
-  min-height: 130vh;
+  min-height: 115vh;
   margin: 4rem auto;
   max-width: 1100px;
 }
