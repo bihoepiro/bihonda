@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Polaroid from '../components/Polaroid.jsx';
 import Reveal from '../components/Reveal.jsx';
+import Conector from '../components/Conector.jsx';
 import { foto } from '../lib/fotos.js';
 
 const AMIGOS = [
@@ -129,14 +130,17 @@ export default function AmigosDS() {
         <RedAmigos />
 
         {AMIGOS.map((a, i) => (
-          <div className="scrolly-block prose" key={a.id}>
-            <Reveal>
-              <p className="big">{a.texto}</p>
-            </Reveal>
-            <div className="foto-fila">
-              {a.fotos.map((f, j) => (
-                <Polaroid key={f} nombre={f} width={185} rotate={(i + j) % 2 ? 2.5 : -2.5} tape={j === 0} emoji="🫂" />
-              ))}
+          <div key={a.id}>
+            {i > 0 && <Conector lado={i % 2 ? 'derecha' : 'izquierda'} />}
+            <div className="scrolly-block prose">
+              <Reveal>
+                <p className="big">{a.texto}</p>
+              </Reveal>
+              <div className="foto-fila">
+                {a.fotos.map((f, j) => (
+                  <Polaroid key={f} nombre={f} width={185} rotate={(i + j) % 2 ? 2.5 : -2.5} tape={j === 0} emoji="🫂" />
+                ))}
+              </div>
             </div>
           </div>
         ))}

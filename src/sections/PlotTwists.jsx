@@ -2,6 +2,7 @@ import * as d3 from 'd3';
 import { motion } from 'framer-motion';
 import Polaroid from '../components/Polaroid.jsx';
 import Reveal from '../components/Reveal.jsx';
+import Conector from '../components/Conector.jsx';
 
 const EVENTOS = [
   { emoji: '🤰', label: 'el anuncio' },
@@ -147,6 +148,8 @@ export default function PlotTwists() {
         <Polaroid nombre="ecografia" caption="mi primera foto, técnicamente" rotate={-3} tape emoji="🤍" />
       </div>
 
+      <Conector lado="derecha" nota="plot twist #1" />
+
       <div className="scrolly-block prose">
         <Reveal>
           <p>
@@ -158,6 +161,8 @@ export default function PlotTwists() {
         </Reveal>
         <Polaroid nombre="3mese" caption="3 meses, todavía sin enterarme de nada" rotate={2.5} emoji="👶" />
       </div>
+
+      <Conector lado="izquierda" nota="plot twist #2" />
 
       <div className="scrolly-block prose">
         <Reveal>
@@ -171,6 +176,8 @@ export default function PlotTwists() {
         </Reveal>
         <Polaroid nombre="yo_6_meses" caption="6 meses y ya con historial médico" rotate={-2} tape emoji="🍼" />
       </div>
+
+      <Conector lado="derecha" />
 
       <Reveal className="scrolly-block">
         <p className="big prose" style={{ fontFamily: 'var(--serif)', fontSize: '2rem' }}>

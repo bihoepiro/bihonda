@@ -337,6 +337,28 @@ img { max-width: 100%; display: block; }
 .scrolly-block { margin: 22vh 0; }
 .scrolly-block:first-of-type { margin-top: 8vh; }
 
+/* ---------- conectores entre bloques ---------- */
+
+.conector {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: -10vh auto;
+  pointer-events: none;
+}
+
+.conector-nota {
+  position: absolute;
+  top: 42%;
+  font-family: var(--hand);
+  font-size: 1.35rem;
+  color: var(--lila-deep);
+  white-space: nowrap;
+}
+
+.conector-nota--derecha { left: calc(50% + 66px); rotate: 4deg; }
+.conector-nota--izquierda { right: calc(50% + 66px); rotate: -4deg; }
+
 .foto-fila {
   display: flex;
   gap: 28px;
@@ -593,4 +615,7 @@ img { max-width: 100%; display: block; }
   .pasaporte { position: static; width: 100%; margin-top: 1rem; }
   .chapter { padding: 10vh 20px; }
   .scrolly-block { margin: 14vh 0; }
+  .conector { margin: -6vh auto; }
+  .conector svg { height: 110px !important; }
+  .conector-nota { font-size: 1.15rem; }
 }

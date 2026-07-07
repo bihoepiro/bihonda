@@ -3,6 +3,7 @@ import cloud from 'd3-cloud';
 import { motion, AnimatePresence } from 'framer-motion';
 import Polaroid from '../components/Polaroid.jsx';
 import Reveal from '../components/Reveal.jsx';
+import Conector from '../components/Conector.jsx';
 
 const PALABRAS = [
   { text: 'bryan', size: 52 },
@@ -256,6 +257,8 @@ export default function Infancia() {
           </AnimatePresence>
         </div>
       </div>
+
+      <Conector lado="derecha" />
 
       {/* transición: solo queda una palabra */}
       <Reveal className="scrolly-block" style={{ textAlign: 'center', padding: '10vh 0 4vh' }}>

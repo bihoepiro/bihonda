@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Polaroid from '../components/Polaroid.jsx';
 import Reveal from '../components/Reveal.jsx';
+import Conector from '../components/Conector.jsx';
 
 const SOBRINOS = [
   { nombre: 'fabi', anio: 2012, edad: '14 años', antes: 'fabi_pasado', ahora: 'fabi_presente', emojiAntes: '👶', emojiAhora: '👧', pct: 100 },
@@ -74,6 +75,8 @@ export default function Sobrinos() {
         </Reveal>
       </div>
 
+      <Conector lado="izquierda" nota="siete años después..." />
+
       <div className="scrolly-block prose">
         <Reveal>
           <p className="big">en el 2019 llegó luisito.</p>
@@ -89,6 +92,8 @@ export default function Sobrinos() {
         </div>
       </div>
 
+      <Conector lado="derecha" nota="y todavía faltaba alguien" />
+
       <div className="scrolly-block prose">
         <Reveal>
           <p className="big">y en el 2023 la familia volvió a crecer con la llegada de consuelito, mi ahijada.</p>
@@ -99,6 +104,8 @@ export default function Sobrinos() {
           <Polaroid nombre="consuelito_presente" width={190} rotate={3} tape caption="consuelito hoy" emoji="🎀" />
         </div>
       </div>
+
+      <Conector lado="izquierda" />
 
       <Reveal className="scrolly-block prose">
         <p className="big">y bueno... ahora la casa siempre tiene alguien corriendo por ahí.</p>

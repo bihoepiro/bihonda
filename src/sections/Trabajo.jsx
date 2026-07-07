@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Polaroid from '../components/Polaroid.jsx';
 import Reveal from '../components/Reveal.jsx';
+import Conector from '../components/Conector.jsx';
 
 const ETAPAS = [
   {
@@ -103,6 +104,8 @@ export default function Trabajo() {
           </div>
         </div>
 
+        <Conector lado="izquierda" nota="siguiente parada:" />
+
         <div className="scrolly-block prose">
           <Reveal>
             <p className="big">en enero del 2025 empezó una etapa que significó muchísimo para mí: entré a belcorp.</p>
@@ -144,6 +147,8 @@ export default function Trabajo() {
             <Polaroid nombre="belcorp_dp" width={240} ratio="wide" rotate={2} caption="más momentos con el equipo" emoji="💻" />
           </div>
         </div>
+
+        <Conector lado="derecha" />
 
         <div className="scrolly-block prose">
           <Reveal>

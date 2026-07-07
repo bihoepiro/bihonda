@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Polaroid from '../components/Polaroid.jsx';
 import Reveal from '../components/Reveal.jsx';
+import Conector from '../components/Conector.jsx';
 
 const W = 800;
 const H = 150;
@@ -30,6 +31,8 @@ export default function Carrera() {
           <Polaroid nombre="bioingenieria" width={220} ratio="wide" rotate={-2} tape caption="mi era de bioingeniera" emoji="🧬" />
         </div>
 
+        <Conector lado="derecha" />
+
         <div className="scrolly-block prose">
           <Reveal>
             <p>aprendí muchísimo. hice amigos.</p>
@@ -37,6 +40,8 @@ export default function Carrera() {
           </Reveal>
           <Polaroid nombre="laboratorio" width={220} ratio="wide" rotate={2.5} caption="horas y horas de laboratorio" emoji="🥼" />
         </div>
+
+        <Conector lado="izquierda" nota="hasta que..." />
 
         <div className="scrolly-block">
           <Reveal>
@@ -78,6 +83,8 @@ export default function Carrera() {
             })}
           </svg>
         </div>
+
+        <Conector lado="derecha" />
 
         <div className="scrolly-block prose">
           <Reveal>

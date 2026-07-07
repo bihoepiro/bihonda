@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Polaroid from '../components/Polaroid.jsx';
 import Reveal from '../components/Reveal.jsx';
+import Conector from '../components/Conector.jsx';
 import { foto } from '../lib/fotos.js';
 
 const ANIOS = [
@@ -178,13 +179,18 @@ export default function LaSalle() {
       </div>
 
       {PERSONAS.map((p, i) => (
-        <div className="scrolly-block prose" key={p.id}>
-          <Reveal>
-            <p className="big">{p.momento}</p>
-          </Reveal>
-          <Polaroid nombre={p.foto} width={210} rotate={i % 2 ? 2.5 : -2.5} tape={i % 2 === 0} caption={p.label} emoji="🫂" />
+        <div key={p.id}>
+          {i > 0 && <Conector lado={i % 2 ? 'derecha' : 'izquierda'} />}
+          <div className="scrolly-block prose">
+            <Reveal>
+              <p className="big">{p.momento}</p>
+            </Reveal>
+            <Polaroid nombre={p.foto} width={210} rotate={i % 2 ? 2.5 : -2.5} tape={i % 2 === 0} caption={p.label} emoji="🫂" />
+          </div>
         </div>
       ))}
+
+      <Conector lado="izquierda" />
 
       <Reveal className="prose scrolly-block">
         <p className="big">cuando pienso en la salle no pienso en tareas.</p>
