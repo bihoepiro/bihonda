@@ -162,7 +162,7 @@ export default function Final() {
                     <span className="nombre">{w.nombre}</span>
                   </div>
                 )}
-                <figcaption className="polaroid-caption">ian, mi capítulo favorito ♡</figcaption>
+                <figcaption className="polaroid-caption">katharsis</figcaption>
                 <div className="ian-heart">
                   <span style={{ fontSize: '1.8rem' }}>❤️</span>
                   <span>highlight del 2026</span>
