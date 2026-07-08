@@ -5,8 +5,7 @@ import Polaroid from '../components/Polaroid.jsx';
 import Reveal from '../components/Reveal.jsx';
 import { foto } from '../lib/fotos.js';
 
-const spotifyPlaylist =
-  'https://open.spotify.com/playlist/1BA6IztOv0g2tBndLzuyPf?si=PdW70y1eRBemxZobBWuZ0w&pi=uIXMIdEWR0ytu';
+const spotifyPlaylist = 'https://open.spotify.com/playlist/4izGF1EE8qxnngCClgavjg';
 
 const WALL = [
   { nombre: 'collage_familia', left: '3%', top: '3%', rotate: -4, width: 235, caption: 'familia', emoji: '👨‍👩‍👧‍👦' },
