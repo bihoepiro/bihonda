@@ -31,9 +31,10 @@ const FELICIDAD = [
   { anio: 2004, valor: 7, emoji: '😊', frase: 'aparecí. contra todo pronóstico.', foto: 'yo_6_meses' },
   { anio: 2012, valor: 8, emoji: '🥹', frase: 'llegó fabianne.', foto: 'fabi_pasado' },
   { anio: 2016, valor: 8.5, emoji: '😄', frase: 'la salle, aixa, nena. buen año.', foto: 'lasalle' },
-  { anio: 2020, valor: 3, emoji: '😭', frase: 'ese año ya saben lo que pasó.', foto: null },
+  { anio: 2019, valor: 8.5, emoji: '👶', frase: 'nació luisito.', foto: 'luisito_antes' },
+  { anio: 2020, valor: 3, emoji: '😭', frase: 'pandemia. jajajaja... xd', foto: null },
   { anio: 2021, valor: 6, emoji: '🙂', frase: 'empezó utec.', foto: 'bioingenieria' },
-  { anio: 2023, valor: 9, emoji: '😄', frase: 'la mejor decisión que he tomado.', foto: 'datascience' },
+  { anio: 2023, valor: 9, emoji: '😄', frase: 'nació consuelito y elegí data science. tremendo año.', foto: 'datascience' },
   { anio: 2024, valor: 9, emoji: '😄', frase: 'europa + primeras prácticas.', foto: 'paris' },
   { anio: 2025, valor: 8.5, emoji: '😊', frase: 'belcorp y gente nueva.', foto: 'belcorp_amigos' },
   { anio: 2026, valor: 10, emoji: '❤️', frase: 'todavía quedan muchos capítulos.', foto: 'fotoprincipal' },
@@ -89,7 +90,7 @@ function HappinessTimeline() {
           </motion.g>
         ))}
       </svg>
-      <p className="chart-note">basado únicamente en cómo recuerdo esos años ❤️ (metodología: cero. cariño: mucho.)</p>
+      <p className="chart-note">basado únicamente en cómo recuerdo esos años (metodología: cero. cariño: mucho.)</p>
 
       {punto && (
         <div
@@ -194,7 +195,7 @@ export default function Final() {
             <span className="washi washi--lila" style={{ top: -14, left: 36, rotate: '-6deg' }} />
             <span className="washi washi--rosa" style={{ top: -12, right: 42, rotate: '7deg' }} />
             <p>bueno... hasta aquí llega la versión 22.0 de mi historia.</p>
-            <p>si llegaste hasta el final: gracias por hacer scroll conmigo ❤️</p>
+            <p>si llegaste hasta el final: gracias por hacer scroll conmigo.</p>
             <p>
               quedan lugares por conocer, modelos por entrenar y seguramente varios plot twists más...
               pero esos capítulos todavía se están escribiendo.
@@ -260,7 +261,7 @@ export default function Final() {
           </a>
         </Reveal>
         <Reveal delay={0.3}>
-          <p className="nota-pequena" style={{ marginTop: '3.5rem' }}>hecho con react, d3 y demasiado matcha 🍵 — bihonda, 2026</p>
+          <p className="nota-pequena" style={{ marginTop: '3.5rem' }}>hecho con react, d3 y demasiado matcha — bihonda, 2026</p>
         </Reveal>
       </div>
     </section>

@@ -29,7 +29,7 @@ const AMIGOS = [
     fotos: ['ricardo'],
     grosor: 3,
     ang: 2.4,
-    texto: 'ricardo llegó mucho después. pero ya forma parte de esta etapa. y sí... gracias por no botarme del discord. 😂',
+    texto: 'ricardo llegó mucho después. pero ya forma parte de esta etapa. y sí... gracias por no botarme del discord.',
   },
 ];
 
@@ -199,8 +199,9 @@ export default function AmigosDS() {
         </div>
 
         <Reveal style={{ textAlign: 'center', paddingTop: '4vh' }}>
-          <p className="nota-pequena">todas las conexiones se van apagando... y solo queda una.</p>
-          <p className="hand" style={{ fontSize: '1.7rem' }}>yo ─── trabajo 💼</p>
+          <p className="hand" style={{ fontSize: '1.7rem', maxWidth: 620, margin: '0 auto' }}>
+            después de tantos datos sobre mi vida... llegó el momento de trabajar con datos de verdad.
+          </p>
         </Reveal>
       </div>
     </section>

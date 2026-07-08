@@ -17,7 +17,7 @@ const VIAJES = [
   { anio: 2019, lugar: 'ciudad de méxico', pais: 'méxico', coords: [-99.13, 19.43], foto: 'mexicodf', frase: 'méxico otra vez, porque sí.' },
   { anio: 2021, lugar: 'cancún', pais: 'méxico', coords: [-86.85, 21.16], foto: 'cancun', frase: 'cancún y yo: una relación estable.' },
   { anio: 2023, lugar: 'ciudad de méxico', pais: 'méxico', coords: [-99.13, 19.43], foto: 'mexicodf', frase: 'ya casi me dan la nacionalidad honoraria.' },
-  { anio: 2024, lugar: 'madrid', pais: 'españa', coords: [-3.7, 40.42], foto: 'madrid', frase: 'mi primera vez en europa 🇪🇸' },
+  { anio: 2024, lugar: 'madrid', pais: 'españa', coords: [-3.7, 40.42], foto: 'madrid', frase: 'mi primera vez en europa.' },
   { anio: 2024, lugar: 'barcelona', pais: 'españa', coords: [2.17, 41.39], foto: 'barcelona', frase: 'gaudí entendió todo.' },
   { anio: 2024, lugar: 'parís', pais: 'francia', coords: [2.35, 48.86], foto: 'paris', frase: 'sí... es tan bonito como dicen.' },
   { anio: 2024, lugar: 'ámsterdam', pais: 'países bajos', coords: [4.9, 52.37], foto: 'amsterdam', frase: 'bicicletas, canales y cero sentido de orientación.' },
@@ -54,7 +54,7 @@ function KmCounter({ km }) {
   return (
     <div className="km-counter">
       {km.toLocaleString('es-PE')} km recorridos
-      <div className="nota-pequena" style={{ fontSize: '0.95rem' }}>(aproximado, no me cobren la precisión ✈️)</div>
+      <div className="nota-pequena" style={{ fontSize: '0.95rem' }}>(aproximado, no me cobren la precisión)</div>
     </div>
   );
 }
@@ -80,7 +80,9 @@ export default function Viajes() {
       const rect = el.getBoundingClientRect();
       const total = rect.height - window.innerHeight;
       const avance = Math.min(1, Math.max(0, -rect.top / Math.max(1, total)));
-      setVisibles(Math.round(avance * VIAJES.length));
+      // los vuelos terminan de aparecer al ~70% del scroll: el tramo final
+      // deja el mapa completo en pantalla antes de soltar el sticky
+      setVisibles(Math.min(VIAJES.length, Math.round((avance / 0.7) * VIAJES.length)));
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
@@ -111,7 +113,7 @@ export default function Viajes() {
       <Reveal>
         <p className="chapter-kicker">capítulo nueve</p>
         <h2 className="chapter-title">mi pasaporte ha trabajado más que yo.</h2>
-        <p className="chapter-sub">sigue bajando: cada scroll despega un vuelo desde lima ✈️ y cada punto guarda una foto 📸</p>
+        <p className="chapter-sub">sigue bajando: cada scroll despega un vuelo desde lima, y cada punto guarda una foto.</p>
       </Reveal>
 
       {/* el sticky vive dentro de este wrapper: al terminar el spacer,
@@ -132,7 +134,7 @@ export default function Viajes() {
               ))}
             {mundo === 'error' && (
               <text x={W / 2} y={H / 2} textAnchor="middle" style={{ fontFamily: 'var(--hand)', fontSize: 20, fill: '#9a9a9a' }}>
-                (el mapa no cargó, pero los viajes fueron reales 🌎)
+                (el mapa no cargó, pero los viajes fueron reales)
               </text>
             )}
 
@@ -238,7 +240,7 @@ export default function Viajes() {
                 pointerEvents: 'none',
               }}
             >
-              👆 toca cada puntito para ver la foto de ese viaje
+              toca cada puntito para ver la foto de ese viaje
             </motion.div>
           )}
 
@@ -264,7 +266,7 @@ export default function Viajes() {
       </div>
 
       {/* espacio de scroll para que el mapa vaya revelando vuelos */}
-      <div style={{ height: '170vh' }} />
+      <div style={{ height: '200vh' }} />
 
       <KmCounter km={km} />
       </div>

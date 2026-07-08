@@ -41,7 +41,7 @@ function GrowthLine({ s, delay }) {
             className="hand"
             style={{ position: 'absolute', right: 0, top: -30 }}
           >
-            hoy: {s.edad} 🎂
+            hoy: {s.edad}
           </motion.span>
         )}
       </div>

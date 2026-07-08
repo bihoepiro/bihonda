@@ -791,10 +791,20 @@ img { max-width: 100%; display: block; }
 }
 
 .reel-centro {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  border: 3px dotted var(--lila-deep);
+  /* eje dentado de cassette (no un spinner de carga) */
+  background:
+    radial-gradient(circle, #fffdf6 0 3px, transparent 3.5px),
+    conic-gradient(
+      var(--lila-deep) 0 30deg, transparent 30deg 60deg,
+      var(--lila-deep) 60deg 90deg, transparent 90deg 120deg,
+      var(--lila-deep) 120deg 150deg, transparent 150deg 180deg,
+      var(--lila-deep) 180deg 210deg, transparent 210deg 240deg,
+      var(--lila-deep) 240deg 270deg, transparent 270deg 300deg,
+      var(--lila-deep) 300deg 330deg, transparent 330deg 360deg
+    );
 }
 
 .cassette:hover .reel-centro { animation: girar 1.6s linear infinite; }

@@ -11,7 +11,7 @@ const NODOS = [
   { id: 'papa', label: 'papá', x: 250, y: 70, foto: 'papi_y_yo', frase: 'siempre estuvo ahí y es mi fan número 1.' },
   { id: 'mama', label: 'mamá', x: 510, y: 70, foto: 'mami_y_yo', frase: 'la persona más trabajadora que conozco.' },
   { id: 'bryan', label: 'bryan', x: 170, y: 330, foto: 'bryan', frase: 'responsable de gran parte de mi personalidad.' },
-  { id: 'tania', label: 'tania', x: 380, y: 330, foto: 'tania', frase: 'mi hermana mayor y mejor amiga ❤️' },
+  { id: 'tania', label: 'tania', x: 380, y: 330, foto: 'tania', frase: 'mi hermana mayor y mejor amiga.' },
   { id: 'yo', label: 'yo', x: 590, y: 330, foto: 'fotoprincipal', frase: 'la última en llegar. la protagonista de esta página.' },
 ];
 
@@ -236,7 +236,7 @@ export default function Familia() {
     <section id="familia" data-capitulo="familia" className="chapter">
       <Reveal>
         <p className="chapter-kicker">capítulo dos</p>
-        <h2 className="chapter-title">la gente que siempre estuvo desde el capítulo uno ❤️</h2>
+        <h2 className="chapter-title">la gente que siempre estuvo desde el capítulo uno</h2>
         <p className="chapter-sub">
           antes de seguir tengo que presentar al elenco principal: mi familia — los de sangre, y los que se
           volvieron familia.

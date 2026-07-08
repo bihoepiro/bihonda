@@ -7,10 +7,10 @@ import { foto } from '../lib/fotos.js';
 const OBSESIONES = [
   { id: 'matcha', img: 'matcha', emoji: '🍵', valor: 30, frase: 'no sé cuándo empezó. solo sé que ahora siempre termino pidiendo matcha.' },
   { id: 'fotografía', img: 'lovemylife', emoji: '📷', valor: 27, frase: 'mi celular tiene demasiadas fotos. no me arrepiento de ninguna.' },
-  { id: 'harry potter', img: 'harrypotter', emoji: '🧙', valor: 25, frase: 'gracias bryan ❤️' },
+  { id: 'harry potter', img: 'harrypotter', emoji: '🧙', valor: 25, frase: 'gracias bryan.' },
   { id: 'playlists', img: 'spotify', emoji: '🎵', valor: 22, frase: 'tengo playlists para absolutamente todo.' },
   { id: 'series', img: 'showslover', emoji: '📺', valor: 21, frase: 'amo ver series. mi comfort show siempre gana.' },
-  { id: 'criminal minds', img: 'spencerreid', emoji: '📺', valor: 20, frase: 'spencer reid fue mi primer amor platónico. nunca lo superé. 😂' },
+  { id: 'criminal minds', img: 'spencerreid', emoji: '📺', valor: 20, frase: 'spencer reid fue mi primer amor platónico. nunca lo superé.' },
   { id: 'tiktok', img: 'tiktok', emoji: '📱', valor: 18, frase: 'tiktok es un agujero negro.' },
   { id: 'ravenclaw', img: 'ravenclaw', emoji: '🦅', valor: 16, frase: 'obviamente ravenclaw.' },
   { id: 'the blacklist', img: 'blacklist', emoji: '🎬', valor: 13, frase: 'reddington merece un premio. yo también, por terminarla.' },

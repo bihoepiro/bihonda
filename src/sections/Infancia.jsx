@@ -26,7 +26,7 @@ const HISTORIAS = {
     chips: ['harry potter', 'nickelodeon', 'relatos mágicos', 'drake & josh', 'icarly', 'hey arnold'],
     chipsTitulo: 'todo lo que me pegó:',
   },
-  'harry potter': { fotos: ['bryan_infancia'], texto: 'mi primera gran obsesión. gracias bryan ⚡' },
+  'harry potter': { fotos: ['bryan_infancia'], texto: 'mi primera gran obsesión. gracias bryan.' },
   nickelodeon: { fotos: ['cantando'], texto: 'mi infancia entera tuvo banda sonora de nickelodeon.' },
   aixa: {
     fotos: ['aixa_pasado', 'aixa_presente'],
@@ -45,7 +45,7 @@ const HISTORIAS = {
   vicky: { fotos: ['vicky', 'vicky2'], texto: 'y gran parte de mis vacaciones a trujillo las pasaba con mi prima vicky.' },
   nena: {
     fotos: ['nena1', 'nena2'],
-    texto: 'y en el 2016 llegó nena. una bichón maltés que decidió convertirse en la dueña absoluta de la casa. 🐾',
+    texto: 'y en el 2016 llegó nena. una bichón maltés que decidió convertirse en la dueña absoluta de la casa.',
   },
   lila: {
     fotos: ['vestido_lila'],

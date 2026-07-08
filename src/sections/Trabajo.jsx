@@ -10,7 +10,7 @@ const ETAPAS = [
     anio: '2024',
     nombre: 'mercedes-benz',
     cargo: 'practicante de datos',
-    frase: 'mi primera experiencia profesional ❤️',
+    frase: 'mi primera experiencia profesional.',
     color: '#222',
   },
   {
@@ -176,7 +176,7 @@ export default function Trabajo() {
         </div>
 
         <Reveal style={{ textAlign: 'center' }}>
-          <p className="nota-pequena">y de repente... la línea se convierte en una ruta aérea ✈️</p>
+          <p className="nota-pequena">y de repente... la línea se convierte en una ruta aérea.</p>
         </Reveal>
       </div>
     </section>

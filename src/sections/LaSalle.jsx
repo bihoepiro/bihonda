@@ -208,7 +208,7 @@ export default function LaSalle() {
         <p style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 7vw, 4.5rem)', margin: '1rem 0 0', color: 'var(--lila-deep)' }}>
           2021
         </p>
-        <p className="hand">empieza utec 💻</p>
+        <p className="hand">empieza utec</p>
       </Reveal>
     </section>
   );
