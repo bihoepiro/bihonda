@@ -10,6 +10,7 @@ const PASOS = [
   { label: 'bioingeniería', anio: '2021' },
   { label: 'cambio de carrera', anio: '2023' },
   { label: 'data science', anio: '2023' },
+  { label: 'datathon laboratech', anio: '2024' },
   { label: 'belcorp', anio: '2025' },
 ];
 
@@ -94,6 +95,29 @@ export default function Carrera() {
             </p>
           </Reveal>
           <Polaroid nombre="datascience" width={240} ratio="wide" rotate={-2} tape caption="ahora sí: mi lugar" emoji="📊" />
+        </div>
+
+        <Conector lado="izquierda" nota="y en medio de todo esto, pasó algo que no vi venir:" />
+
+        <div className="scrolly-block prose bloque-zz bloque-zz--inv">
+          <Reveal>
+            <p className="hand" style={{ fontSize: '1.9rem', margin: '0 0 0.5rem' }}>datathon laboratech</p>
+            <p className="big">
+              junto a josué desarrollamos munay, un proyecto para promover la inclusión laboral de personas con discapacidad.
+            </p>
+            <p>
+              lo presentamos en la datathon laboratech... y ganamos. ese logro nos llevó a roma, a representar el proyecto.
+            </p>
+            <p>
+              ahí visitamos organizaciones e instituciones de inclusión, innovación y empleo. esas visitas nos ayudaron
+              a fortalecer, validar y enriquecer toda la propuesta.
+            </p>
+            <p className="nota-pequena">(ese viaje a roma vuelve a aparecer más adelante, en el capítulo de viajes.)</p>
+          </Reveal>
+          <div className="foto-fila">
+            <Polaroid nombre="anuncio_ganador" width={200} ratio="wide" rotate={-2.5} tape caption="ganamos la datathon laboratech" emoji="🏆" />
+            <Polaroid nombre="roma_hackathon" width={200} ratio="wide" rotate={2.5} caption="representando a munay en roma" emoji="🏛️" style={{ marginTop: 26 }} />
+          </div>
         </div>
       </div>
     </section>
