@@ -183,6 +183,9 @@ export default function LaSalle() {
           {i > 0 && <Conector lado={i % 2 ? 'derecha' : 'izquierda'} />}
           <div className={`scrolly-block prose bloque-zz${i % 2 ? ' bloque-zz--inv' : ''}`}>
             <Reveal>
+              {p.id !== 'profes' && (
+                <p className="hand" style={{ fontSize: '1.9rem', margin: '0 0 0.5rem' }}>{p.label}</p>
+              )}
               <p className="big">{p.momento}</p>
             </Reveal>
             <Polaroid nombre={p.foto} width={210} rotate={i % 2 ? 2.5 : -2.5} tape={i % 2 === 0} caption={p.label} emoji="🫂" />

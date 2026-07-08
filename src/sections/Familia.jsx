@@ -151,20 +151,17 @@ function FamilyTree() {
   );
 }
 
-// debajo del árbol: los recuerdos en grupo, sandra y kike
+// debajo del árbol: los recuerdos de los cinco
 const COLLAGE_FOTOS = [
-  { nombre: 'familiacompleta', caption: 'el elenco completo', width: 275, ratio: 'wide', rotate: -3, tape: true, left: '1%', top: 0, float: 5.4 },
-  { nombre: 'sandra', caption: 'sandra ♡', width: 195, ratio: 'square', rotate: 2.5, tape: true, left: '40%', top: 95, float: 5.8 },
-  { nombre: 'familia2', caption: 'nosotros, otra vez', width: 258, ratio: 'wide', rotate: 2, tape: true, left: '71%', top: 15, float: 6.2 },
+  { nombre: 'familiacompleta', caption: 'el elenco completo', width: 275, ratio: 'wide', rotate: -3, tape: true, left: '6%', top: 20, float: 5.4 },
+  { nombre: 'familia2', caption: 'nosotros, otra vez', width: 258, ratio: 'wide', rotate: 2, tape: true, left: '55%', top: 75, float: 6.2 },
 ];
 
 const COLLAGE_NOTAS = [
-  { t: 'somos cinco', left: '7%', top: 272, r: -3, size: '1.35rem' },
-  { t: 'me cuidó desde bebé ♡', left: '40%', top: 392, r: 2, size: '1.25rem' },
-  { t: '♡', left: '64%', top: 320, r: 0, size: '1.4rem' },
-  { t: '✦', left: '31%', top: 40, r: 0, size: '1.3rem' },
-  { t: '❀', left: '29%', top: 590, r: 8, size: '1.5rem' },
-  { t: 'gracias por acompañarme siempre ♡', left: '59%', top: 598, r: -3, size: '1.35rem' },
+  { t: 'somos cinco', left: '13%', top: 310, r: -3, size: '1.35rem' },
+  { t: '✦', left: '46%', top: 45, r: 0, size: '1.3rem' },
+  { t: '♡', left: '48%', top: 250, r: 0, size: '1.4rem' },
+  { t: '❀', left: '88%', top: 360, r: 8, size: '1.5rem' },
 ];
 
 function CollageFamilia() {
@@ -182,21 +179,6 @@ function CollageFamilia() {
         </motion.div>
       ))}
 
-      {/* kike: un lugar especial, quieto y con marco antiguo */}
-      <motion.div
-        className="collage-item"
-        style={{ left: '36%', top: 480 }}
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-10% 0px' }}
-        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-      >
-        <div style={{ position: 'relative' }}>
-          <span className="washi washi--dorado" style={{ top: -13, left: '50%', translate: '-50% 0', rotate: '-4deg', zIndex: 2 }} />
-          <Polaroid nombre="kike" caption="kike ♡" width={245} ratio="wide" rotate={-1.5} className="polaroid--vintage" emoji="🤍" />
-        </div>
-      </motion.div>
-
       {COLLAGE_NOTAS.map((n, i) => (
         <motion.span
           key={`${n.t}-${i}`}
@@ -210,6 +192,41 @@ function CollageFamilia() {
           {n.t}
         </motion.span>
       ))}
+    </div>
+  );
+}
+
+// sandra y kike: no salen en el árbol, pero son familia igual
+function FamiliaElegida() {
+  return (
+    <div
+      className="scrolly-block"
+      style={{ display: 'flex', flexWrap: 'wrap', gap: '56px 72px', justifyContent: 'center', alignItems: 'flex-start', marginTop: '5vh' }}
+    >
+      <motion.div
+        style={{ maxWidth: 250, textAlign: 'center' }}
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-10% 0px' }}
+        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <Polaroid nombre="sandra" caption="sandra ♡" width={215} ratio="square" rotate={-2.5} tape emoji="🌷" style={{ margin: '0 auto' }} />
+        <p className="hand" style={{ fontSize: '1.35rem', margin: '1.4rem 0 0' }}>gracias por cuidarme desde que era bebé.</p>
+      </motion.div>
+
+      <motion.div
+        style={{ maxWidth: 280, textAlign: 'center' }}
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-10% 0px' }}
+        transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.25 }}
+      >
+        <div style={{ position: 'relative', width: 245, margin: '0 auto' }}>
+          <span className="washi washi--dorado" style={{ top: -13, left: '50%', translate: '-50% 0', rotate: '-4deg', zIndex: 2 }} />
+          <Polaroid nombre="kike" caption="kike ♡" width={245} ratio="wide" rotate={1.5} className="polaroid--vintage" emoji="🤍" />
+        </div>
+        <p className="hand" style={{ fontSize: '1.35rem', margin: '1.4rem 0 0' }}>aunque ya no estés aquí, siempre te llevo conmigo.</p>
+      </motion.div>
     </div>
   );
 }
@@ -233,6 +250,12 @@ export default function Familia() {
       </Reveal>
 
       <CollageFamilia />
+
+      <Reveal style={{ textAlign: 'center', paddingTop: '9vh' }}>
+        <p className="hand" style={{ fontSize: '1.6rem' }}>y hay dos personas que no salen en el árbol, pero son familia:</p>
+      </Reveal>
+
+      <FamiliaElegida />
     </section>
   );
 }

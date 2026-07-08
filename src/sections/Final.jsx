@@ -21,12 +21,10 @@ const WALL = [
 ];
 
 const WALL_NOTAS = [
-  { t: 'mi gente favorita ♡', left: '44%', top: '21%', r: -4, size: '1.5rem' },
   { t: '✦', left: '25%', top: '26%', r: 0, size: '1.5rem' },
   { t: '✦', left: '65%', top: '33%', r: 0, size: '1.2rem' },
   { t: '❀', left: '9%', top: '54%', r: 8, size: '1.4rem' },
   { t: '♡', left: '58%', top: '62%', r: -6, size: '1.5rem' },
-  { t: 'gracias por tanto', left: '30%', top: '88%', r: 3, size: '1.35rem' },
   { t: '✦', left: '90%', top: '90%', r: 0, size: '1.3rem' },
 ];
 
@@ -165,7 +163,7 @@ export default function Final() {
                     <span className="nombre">{w.nombre}</span>
                   </div>
                 )}
-                <figcaption className="polaroid-caption">ian 🤍</figcaption>
+                <figcaption className="polaroid-caption">ian, mi capítulo favorito ♡</figcaption>
                 <div className="ian-heart">
                   <span style={{ fontSize: '1.8rem' }}>❤️</span>
                   <span>highlight del 2026</span>

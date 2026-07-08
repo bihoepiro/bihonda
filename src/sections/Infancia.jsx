@@ -15,7 +15,7 @@ const PALABRAS = [
   { text: 'vicky', size: 28 },
   { text: 'relatos mágicos', size: 26 },
   { text: 'fer', size: 24 },
-  { text: 'valeria', size: 24 },
+  { text: 'valeri', size: 24 },
 ];
 
 const HISTORIAS = {
@@ -35,12 +35,12 @@ const HISTORIAS = {
   fer: {
     fotos: ['fer_valeria'],
     texto:
-      'gran parte de mi infancia también la pasé jugando con fer y valeria. creo que ninguno imaginaba lo rápido que iba a pasar el tiempo.',
+      'gran parte de mi infancia también la pasé jugando con fer y valeri. creo que ninguno imaginaba lo rápido que iba a pasar el tiempo.',
   },
-  valeria: {
+  valeri: {
     fotos: ['fer_valeria'],
     texto:
-      'gran parte de mi infancia también la pasé jugando con fer y valeria. creo que ninguno imaginaba lo rápido que iba a pasar el tiempo.',
+      'gran parte de mi infancia también la pasé jugando con fer y valeri. creo que ninguno imaginaba lo rápido que iba a pasar el tiempo.',
   },
   vicky: { fotos: ['vicky', 'vicky2'], texto: 'y gran parte de mis vacaciones a trujillo las pasaba con mi prima vicky.' },
   nena: {
